@@ -2,57 +2,1011 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pinnacle Equipment</title>
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; background: #0a0a0a; color: white; }
-    .hero { position: relative; height: 100vh; background: url('hero.jpg') center/cover no-repeat; display: flex; flex-direction: column; justify-content: center; padding: 40px; }
-    .overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.7); }
-    .content { position: relative; max-width: 700px; }
-    h1 { font-size: 60px; margin: 0; text-transform: uppercase; }
-    h1 span { color: #C2C2C2; display: block; }
-    p { color: #ccc; line-height: 1.6; margin-top: 20px; }
-    .btn { display: inline-block; margin-top: 30px; padding: 15px 25px; background: #6F8A3A; color: black; text-decoration: none; font-weight: bold; border-radius: 10px; }
-    .section { padding: 80px 40px; }
-    .card { background: #111; padding: 20px; border-radius: 12px; margin-top: 20px; }
-    img.logo { width: 50px; margin-bottom: 20px; }
+    :root {
+      --bg: #0a0a0a;
+      --panel: rgba(255,255,255,0.04);
+      --panel-2: rgba(255,255,255,0.03);
+      --border: rgba(255,255,255,0.10);
+      --text: #ffffff;
+      --muted: #c7c7c7;
+      --muted-2: #9ca3af;
+      --green: #6F8A3A;
+      --silver: #C2C2C2;
+      --green-soft: rgba(111,138,58,0.12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(1200px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .eyebrow {
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 0.26em;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin: 0 0 18px;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 760px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: 28px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+      min-height: 100vh;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top, rgba(111,138,58,0.18), transparent 35%),
+        linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.72));
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      opacity: 0.10;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+      background-size: 34px 34px;
+    }
+
+    .nav {
+      position: relative;
+      z-index: 2;
+      padding: 24px 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+
+    .brand-text-top {
+      color: var(--green);
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: 0.24em;
+      line-height: 1;
+    }
+
+    .brand-text-bottom {
+      color: #d4d4d8;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.38em;
+      margin-top: 4px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+      color: #d4d4d8;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .phone-pill {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.05);
+      color: #e4e4e7;
+      font-size: 14px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 36px 0 110px;
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: start;
+      position: relative;
+    }
+
+    .hero-watermark {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 290px;
+      opacity: 0.05;
+      pointer-events: none;
+    }
+
+    .hero-left {
+      max-width: 720px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(111,138,58,0.3);
+      background: rgba(111,138,58,0.10);
+      color: #c9d8a8;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      margin: 0;
+      font-size: clamp(54px, 7vw, 92px);
+      line-height: 0.95;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title span {
+      display: block;
+      color: var(--silver);
+    }
+
+    .hero-copy {
+      margin-top: 24px;
+      max-width: 640px;
+      font-size: 19px;
+      line-height: 1.8;
+      color: #d4d4d8;
+    }
+
+    .hero-actions {
+      margin-top: 32px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .cta-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .btn-primary, .btn-secondary {
+      display: inline-block;
+      padding: 18px 26px;
+      border-radius: 18px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: #000;
+      box-shadow: 0 18px 40px rgba(111,138,58,0.25);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.05);
+      color: white;
+    }
+
+    .helper {
+      text-align: center;
+      font-size: 12px;
+      color: #d4d4d8;
+      font-weight: 600;
+    }
+
+    .service-grid {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 580px;
+    }
+
+    .service-item {
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      padding: 14px 16px;
+      color: #e4e4e7;
+      font-size: 14px;
+    }
+
+    .hero-card {
+      padding: 16px;
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      box-shadow: 0 24px 50px rgba(0,0,0,0.30);
+    }
+
+    .hero-card-inner {
+      padding: 32px;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      background: linear-gradient(to bottom right, #18181b, #09090b 60%, #000000);
+    }
+
+    .featured-pill {
+      display: inline-block;
+      border-radius: 18px;
+      padding: 12px 16px;
+      border: 1px solid rgba(111,138,58,0.30);
+      background: rgba(111,138,58,0.10);
+      color: #c9d8a8;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .featured-title {
+      margin-top: 24px;
+      font-size: 42px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .featured-copy {
+      margin-top: 10px;
+      color: #d4d4d8;
+      line-height: 1.8;
+    }
+
+    .stats-grid {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .stat-card {
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      padding: 16px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted-2);
+    }
+
+    .stat-value {
+      margin-top: 10px;
+      font-size: 30px;
+      font-weight: 900;
+      color: white;
+    }
+
+    .featured-note {
+      margin-top: 28px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.40);
+      padding: 16px;
+      color: #d4d4d8;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .equipment-grid,
+    .about-grid,
+    .contact-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .equipment-grid {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+
+    .image-card {
+      overflow: hidden;
+      min-height: 100%;
+    }
+
+    .image-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      object-fit: cover;
+    }
+
+    .content-card {
+      padding: 32px;
+    }
+
+    .subhead {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted-2);
+    }
+
+    .machine-title {
+      margin-top: 10px;
+      font-size: 34px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .machine-copy {
+      margin-top: 16px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .divider {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .attachment-list {
+      margin-top: 16px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .attachment-item {
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.30);
+      padding: 16px;
+    }
+
+    .attachment-name {
+      font-weight: 700;
+    }
+
+    .attachment-detail {
+      margin-top: 6px;
+      color: var(--muted-2);
+      font-size: 14px;
+    }
+
+    .two-grid,
+    .three-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .two-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .three-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .simple-card {
+      padding: 32px;
+    }
+
+    .simple-card ul {
+      margin: 16px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 2;
+    }
+
+    .price-card {
+      padding: 32px;
+      background: rgba(0,0,0,0.30);
+    }
+
+    .price-value {
+      margin-top: 16px;
+      font-size: 54px;
+      font-weight: 900;
+    }
+
+    .price-note {
+      margin-top: 14px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .muted-band {
+      background: rgba(255,255,255,0.02);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .step-number {
+      font-size: 64px;
+      font-weight: 900;
+      color: rgba(111,138,58,0.80);
+      line-height: 1;
+    }
+
+    .step-title {
+      margin-top: 18px;
+      font-size: 24px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .step-copy {
+      margin-top: 16px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .about-grid { grid-template-columns: 1fr 0.95fr; }
+
+    .about-copy {
+      color: var(--muted);
+      line-height: 1.9;
+      max-width: 760px;
+    }
+
+    .about-copy + .about-copy {
+      margin-top: 18px;
+    }
+
+    .faq-card,
+    .highlight-card {
+      padding: 32px;
+      background: rgba(0,0,0,0.30);
+    }
+
+    .faq-title,
+    .highlight-title {
+      font-size: 22px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .faq-copy,
+    .highlight-copy {
+      margin-top: 16px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .contact-grid { grid-template-columns: 1fr 0.9fr; }
+
+    .contact-card {
+      padding: 32px;
+    }
+
+    .contact-info {
+      display: grid;
+      gap: 20px;
+    }
+
+    .contact-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted-2);
+    }
+
+    .contact-value {
+      margin-top: 8px;
+      color: #e4e4e7;
+      line-height: 1.8;
+    }
+
+    .contact-value.big {
+      font-size: 30px;
+      font-weight: 900;
+      color: white;
+    }
+
+    .contact-button {
+      margin-top: 8px;
+      display: inline-block;
+      width: 100%;
+      padding: 18px 24px;
+      border-radius: 18px;
+      background: var(--green);
+      color: #000;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    @media (max-width: 980px) {
+      .hero-layout,
+      .equipment-grid,
+      .about-grid,
+      .contact-grid,
+      .three-grid,
+      .two-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-watermark,
+      .nav-links,
+      .phone-pill {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-content {
+        padding-bottom: 80px;
+      }
+
+      .brand-text-top {
+        font-size: 24px;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .image-card img {
+        min-height: 320px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(100% - 28px, 1200px);
+      }
+
+      .section {
+        padding: 58px 0;
+      }
+
+      .hero-title {
+        font-size: 46px;
+      }
+
+      .hero-copy {
+        font-size: 17px;
+      }
+
+      .hero-card-inner,
+      .content-card,
+      .simple-card,
+      .price-card,
+      .faq-card,
+      .highlight-card,
+      .contact-card {
+        padding: 24px;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="hero">
-    <div class="overlay"></div>
-    <div class="content">
-      <img src="pinnacle-symbol.png" class="logo" alt="Pinnacle symbol" />
-      <h1>Stay on top<span>with dependable rentals</span></h1>
-      <p>Based in Austintown, serving Northeast Ohio. Pinnacle Equipment provides practical, job-ready equipment for contractors and property owners.</p>
-      <a href="#contact" class="btn">Check Availability</a>
-    </div>
-  </div>
+  <section class="hero">
+    <img src="hero.jpg" alt="Bobcat MT100 at night" class="hero-bg">
+    <div class="hero-overlay"></div>
+    <div class="hero-grid"></div>
 
-  <div class="section">
-    <h2>Equipment</h2>
-    <div class="card">
-      <img src="machine.jpg" style="width:100%; border-radius:10px;" alt="Bobcat MT100" />
-      <h3>Bobcat MT100</h3>
-      <p>Compact power for grading, cleanup, and material handling.</p>
-    </div>
-  </div>
+    <div class="nav">
+      <div class="container nav-inner">
+        <div class="brand">
+          <img src="pinnacle-symbol.png" alt="Pinnacle symbol">
+          <div>
+            <div class="brand-text-top">PINNACLE</div>
+            <div class="brand-text-bottom">EQUIPMENT</div>
+          </div>
+        </div>
 
-  <div class="section">
-    <h2>Pricing</h2>
-    <div class="card">
-      <p><strong>Daily:</strong> $225</p>
-      <p><strong>Weekend:</strong> $299</p>
-      <p><strong>Weekly:</strong> $795</p>
+        <div class="nav-right">
+          <div class="nav-links">
+            <a href="#equipment">Equipment</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <a href="tel:3302729911" class="phone-pill">330-272-9911</a>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="section" id="contact">
-    <h2>Contact</h2>
-    <div class="card">
-      <p><strong>Phone:</strong> 330-272-9911</p>
-      <p>Text or call for fastest response</p>
+    <div class="hero-content">
+      <div class="container hero-layout">
+        <img src="pinnacle-symbol.png" alt="" class="hero-watermark">
+
+        <div class="hero-left">
+          <div class="hero-pill">Equipment Rentals — Delivered When You Need It</div>
+
+          <h1 class="hero-title">
+            Stay on top
+            <span>with dependable rentals</span>
+          </h1>
+
+          <div class="hero-copy">
+            Based in Austintown, serving Northeast Ohio. Pinnacle Equipment provides practical,
+            job-ready rental equipment for contractors, property owners, and professionals who need
+            reliable machines without unnecessary hassle.
+          </div>
+
+          <div class="hero-actions">
+            <div class="cta-wrap">
+              <a href="#contact" class="btn-primary">Check Availability</a>
+              <div class="helper">Text or call for fastest response</div>
+            </div>
+            <a href="#equipment" class="btn-secondary">View Equipment</a>
+          </div>
+
+          <div class="service-grid">
+            <div class="service-item">Mini skid steer rentals</div>
+            <div class="service-item">Attachment rentals</div>
+            <div class="service-item">Delivery available</div>
+            <div class="service-item">Contractor and homeowner friendly</div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-inner">
+            <div class="featured-pill">Featured machine</div>
+            <div class="featured-title">Bobcat MT100</div>
+            <div class="featured-copy">
+              Compact power for grading, cleanup, material handling, and residential or contractor jobs.
+            </div>
+
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-label">Daily</div>
+                <div class="stat-value">$225</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Weekend</div>
+                <div class="stat-value">$299</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Weekly</div>
+                <div class="stat-value">$795</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Delivery</div>
+                <div class="stat-value" style="font-size:24px;">Available</div>
+              </div>
+            </div>
+
+            <div class="featured-note">
+              Pickup is available. Delivery and scheduling are confirmed based on availability,
+              cleaning, and inspection.
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <section id="equipment" class="section">
+    <div class="container">
+      <div class="eyebrow">Equipment</div>
+      <h2 class="section-title">Practical equipment for real work</h2>
+      <div class="section-copy">
+        Built around clean, capable rentals that make sense for both contractor and homeowner jobs.
+      </div>
+
+      <div class="equipment-grid" style="margin-top:32px;">
+        <div class="card image-card">
+          <img src="machine.jpg" alt="Bobcat MT100 working on site">
+        </div>
+
+        <div class="card content-card">
+          <div class="subhead">Machine</div>
+          <div class="machine-title">Bobcat MT100</div>
+          <div class="machine-copy">
+            A compact track loader that is easy to transport, strong for its size, and useful for a wide range
+            of jobs from cleanup and material movement to grading and property work.
+          </div>
+
+          <div class="divider">
+            <div class="subhead">Attachments</div>
+            <div class="attachment-list">
+              <div class="attachment-item">
+                <div class="attachment-name">Bucket</div>
+                <div class="attachment-detail">General cleanup, grading, and material handling</div>
+              </div>
+              <div class="attachment-item">
+                <div class="attachment-name">Pallet Forks</div>
+                <div class="attachment-detail">Move materials, pallets, and jobsite supplies</div>
+              </div>
+              <div class="attachment-item">
+                <div class="attachment-name">Grapple</div>
+                <div class="attachment-detail">Brush, debris, and property cleanup work</div>
+              </div>
+              <div class="attachment-item">
+                <div class="attachment-name">More attachments coming soon</div>
+                <div class="attachment-detail">Built to grow with real customer demand</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container two-grid">
+      <div class="card simple-card">
+        <div class="subhead">Delivery & Pickup</div>
+        <ul>
+          <li>Pickup available</li>
+          <li>Delivery available within roughly 25–30 miles</li>
+          <li>Delivery pricing based on distance</li>
+        </ul>
+      </div>
+
+      <div class="card simple-card">
+        <div class="subhead">Built For</div>
+        <ul>
+          <li>Contractors</li>
+          <li>Property owners</li>
+          <li>Weekend projects</li>
+          <li>Land clearing & cleanup</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="section muted-band">
+    <div class="container">
+      <div class="eyebrow">Pricing</div>
+      <h2 class="section-title">Clear rates. Straightforward rentals.</h2>
+      <div class="section-copy">
+        Practical pricing designed to stay competitive while keeping the process simple.
+      </div>
+
+      <div class="three-grid" style="margin-top:32px;">
+        <div class="card price-card">
+          <div class="subhead">Daily</div>
+          <div class="price-value">$225</div>
+          <div class="price-note">Strong value for single-day projects</div>
+        </div>
+
+        <div class="card price-card">
+          <div class="subhead">Weekend</div>
+          <div class="price-value">$299</div>
+          <div class="price-note">Great for Friday to Monday jobs</div>
+        </div>
+
+        <div class="card price-card">
+          <div class="subhead">Weekly</div>
+          <div class="price-value">$795</div>
+          <div class="price-note">Built for longer contractor or property work</div>
+        </div>
+      </div>
+
+      <div class="card simple-card" style="margin-top:24px; background:rgba(0,0,0,0.30);">
+        Attachment pricing, delivery fees, cleaning charges, fuel charges, and other terms can be confirmed at booking.
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works" class="section">
+    <div class="container">
+      <div class="eyebrow">How It Works</div>
+      <h2 class="section-title">Simple from first message to delivery</h2>
+
+      <div class="three-grid" style="margin-top:32px;">
+        <div class="card simple-card">
+          <div class="step-number">01</div>
+          <div class="step-title">Request availability</div>
+          <div class="step-copy">
+            Reach out with your dates, job type, and whether you need pickup or delivery.
+          </div>
+        </div>
+
+        <div class="card simple-card">
+          <div class="step-number">02</div>
+          <div class="step-title">Confirm details</div>
+          <div class="step-copy">
+            We confirm equipment, attachments, pricing, and scheduling based on availability.
+          </div>
+        </div>
+
+        <div class="card simple-card">
+          <div class="step-number">03</div>
+          <div class="step-title">Get to work</div>
+          <div class="step-copy">
+            Pick up your rental or have it delivered ready for the job.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section muted-band">
+    <div class="container about-grid">
+      <div>
+        <div class="eyebrow">About Pinnacle</div>
+        <h2 class="section-title">Dependable equipment without the runaround</h2>
+        <div class="about-copy">
+          Pinnacle Equipment is built around a simple idea: provide dependable, practical equipment rentals
+          with responsive communication and straightforward service. The focus is on clean machines, useful
+          attachments, honest scheduling, and helping customers stay productive.
+        </div>
+        <div class="about-copy">
+          Whether the job is residential cleanup, contractor work, grading, material handling, or property
+          improvement, Pinnacle is built to make the rental process easier and more dependable.
+        </div>
+      </div>
+
+      <div class="three-grid" style="grid-template-columns:1fr;">
+        <div class="card highlight-card">
+          <div class="highlight-title">Job-ready equipment</div>
+          <div class="highlight-copy">
+            Reliable, clean, and well-maintained equipment that is ready to work when it arrives.
+          </div>
+        </div>
+
+        <div class="card highlight-card">
+          <div class="highlight-title">Straightforward service</div>
+          <div class="highlight-copy">
+            Simple rental process, responsive communication, and clear delivery expectations.
+          </div>
+        </div>
+
+        <div class="card highlight-card">
+          <div class="highlight-title">Built for Northeast Ohio</div>
+          <div class="highlight-copy">
+            Local service with practical delivery options for contractors, property owners, and weekend projects.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">Questions</div>
+      <h2 class="section-title">Common questions before booking</h2>
+
+      <div class="three-grid" style="margin-top:32px;">
+        <div class="card faq-card">
+          <div class="faq-title">Do you offer delivery?</div>
+          <div class="faq-copy">
+            Yes. Delivery and pickup are available based on location, scheduling, and current equipment availability.
+          </div>
+        </div>
+
+        <div class="card faq-card">
+          <div class="faq-title">Can customers pick up equipment?</div>
+          <div class="faq-copy">
+            Yes. Pickup is available for customers with the right towing capacity, trailer setup, and securement equipment.
+          </div>
+        </div>
+
+        <div class="card faq-card">
+          <div class="faq-title">Who is this equipment for?</div>
+          <div class="faq-copy">
+            Pinnacle serves contractors, property owners, and customers who need dependable equipment without a complicated rental process.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section" style="border-top:1px solid var(--border); background:linear-gradient(180deg,rgba(111,138,58,0.08),transparent 70%);">
+    <div class="container contact-grid">
+      <div>
+        <div class="eyebrow">Contact</div>
+        <h2 class="section-title">Get pricing and availability</h2>
+        <div class="section-copy">
+          Reach out for scheduling, delivery options, attachment availability, and current rental pricing.
+          Texting is welcome.
+        </div>
+      </div>
+
+      <div class="card contact-card">
+        <div class="contact-info">
+          <div>
+            <div class="contact-label">Phone</div>
+            <div class="contact-value big">330-272-9911</div>
+          </div>
+
+          <div>
+            <div class="contact-label">Service Area</div>
+            <div class="contact-value">Based in Austintown, serving Northeast Ohio</div>
+          </div>
+
+          <div>
+            <div class="contact-label">Availability Note</div>
+            <div class="contact-value">
+              Equipment availability and delivery timing are confirmed once equipment is cleaned and inspected.
+            </div>
+          </div>
+
+          <a href="tel:3302729911" class="contact-button">Call now</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
