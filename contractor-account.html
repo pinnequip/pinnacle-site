@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contractor Accounts | Pinnacle Equipment</title>
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --panel: rgba(255,255,255,0.04);
+      --panel-2: rgba(255,255,255,0.03);
+      --border: rgba(255,255,255,0.10);
+      --text: #ffffff;
+      --muted: #c7c7c7;
+      --muted-2: #9ca3af;
+      --green: #6F8A3A;
+      --silver: #C2C2C2;
+      --green-soft: rgba(111,138,58,0.12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(1200px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .eyebrow {
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 0.26em;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin: 0 0 18px;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 760px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: 28px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+      min-height: 100vh;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top, rgba(111,138,58,0.18), transparent 35%),
+        linear-gradient(rgba(0,0,0,0.76), rgba(0,0,0,0.78));
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      opacity: 0.10;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+      background-size: 34px 34px;
+    }
+
+    .nav {
+      position: relative;
+      z-index: 2;
+      padding: 24px 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+
+    .brand-text-top {
+      color: var(--green);
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: 0.24em;
+      line-height: 1;
+    }
+
+    .brand-text-bottom {
+      color: #d4d4d8;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.38em;
+      margin-top: 4px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+      color: #d4d4d8;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .phone-pill {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.05);
+      color: #e4e4e7;
+      font-size: 14px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 36px 0 110px;
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 48px;
+      align-items: start;
+      position: relative;
+    }
+
+    .hero-watermark {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 290px;
+      opacity: 0.05;
+      pointer-events: none;
+    }
+
+    .hero-left {
+      max-width: 740px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(111,138,58,0.3);
+      background: rgba(111,138,58,0.10);
+      color: #c9d8a8;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      margin: 0;
+      font-size: clamp(54px, 7vw, 92px);
+      line-height: 0.95;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title span {
+      display: block;
+      color: var(--silver);
+    }
+
+    .hero-copy {
+      margin-top: 24px;
+      max-width: 660px;
+      font-size: 19px;
+      line-height: 1.8;
+      color: #d4d4d8;
+    }
+
+    .hero-actions {
+      margin-top: 32px;
+      display: flex;
+      gap: 20px;
+      align-items: stretch;
+      flex-wrap: wrap;
+    }
+
+    .cta-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1 1 260px;
+    }
+
+    .btn-primary, .btn-secondary {
+      display: block;
+      padding: 18px 26px;
+      border-radius: 18px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 13px;
+      font-weight: 800;
+      width: 100%;
+      min-height: 58px;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: #000;
+      box-shadow: 0 18px 40px rgba(111,138,58,0.25);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.05);
+      color: white;
+    }
+
+    .helper {
+      text-align: center;
+      font-size: 12px;
+      color: #d4d4d8;
+      font-weight: 600;
+    }
+
+    .service-grid {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 640px;
+    }
+
+    .service-item {
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      padding: 14px 16px;
+      color: #e4e4e7;
+      font-size: 14px;
+    }
+
+    .hero-card {
+      padding: 16px;
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      box-shadow: 0 24px 50px rgba(0,0,0,0.30);
+    }
+
+    .hero-card-inner {
+      padding: 32px;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      background: linear-gradient(to bottom right, #18181b, #09090b 60%, #000000);
+    }
+
+    .featured-pill {
+      display: inline-block;
+      border-radius: 18px;
+      padding: 12px 16px;
+      border: 1px solid rgba(111,138,58,0.30);
+      background: rgba(111,138,58,0.10);
+      color: #c9d8a8;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .featured-title {
+      margin-top: 24px;
+      font-size: 42px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .featured-copy {
+      margin-top: 10px;
+      color: #d4d4d8;
+      line-height: 1.8;
+    }
+
+    .stats-grid {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .stat-card {
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      padding: 16px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted-2);
+    }
+
+    .stat-value {
+      margin-top: 10px;
+      font-size: 30px;
+      font-weight: 900;
+      color: white;
+    }
+
+    .featured-note {
+      margin-top: 28px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.40);
+      padding: 16px;
+      color: #d4d4d8;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .two-grid,
+    .three-grid,
+    .four-grid,
+    .contact-grid,
+    .about-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .two-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .three-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .four-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .contact-grid { grid-template-columns: 1fr 0.9fr; }
+    .about-grid { grid-template-columns: 1fr 0.95fr; }
+
+    .simple-card,
+    .highlight-card,
+    .contact-card,
+    .image-card,
+    .faq-card {
+      padding: 32px;
+    }
+
+    .subhead {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted-2);
+    }
+
+    .step-title,
+    .highlight-title,
+    .faq-title {
+      margin-top: 18px;
+      font-size: 24px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .step-copy,
+    .highlight-copy,
+    .faq-copy,
+    .about-copy {
+      margin-top: 16px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .about-copy + .about-copy {
+      margin-top: 18px;
+    }
+
+    .muted-band {
+      background: rgba(255,255,255,0.02);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .image-feature {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .image-feature img {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      object-fit: cover;
+    }
+
+    .contact-info {
+      display: grid;
+      gap: 20px;
+    }
+
+    .contact-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted-2);
+    }
+
+    .contact-value {
+      margin-top: 8px;
+      color: #e4e4e7;
+      line-height: 1.8;
+    }
+
+    .contact-value.big {
+      font-size: 30px;
+      font-weight: 900;
+      color: white;
+    }
+
+    .contact-button {
+      margin-top: 8px;
+      display: inline-block;
+      width: 100%;
+      padding: 18px 24px;
+      border-radius: 18px;
+      background: var(--green);
+      color: #000;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .link-back {
+      color: #d4d4d8;
+      font-size: 14px;
+    }
+
+    @media (max-width: 1100px) {
+      .four-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero-layout,
+      .contact-grid,
+      .about-grid,
+      .three-grid,
+      .two-grid,
+      .four-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-watermark,
+      .nav-links,
+      .phone-pill {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-content {
+        padding-bottom: 80px;
+      }
+
+      .brand-text-top {
+        font-size: 24px;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(100% - 28px, 1200px);
+      }
+
+      .section {
+        padding: 58px 0;
+      }
+
+      .hero-title {
+        font-size: 46px;
+      }
+
+      .hero-copy {
+        font-size: 17px;
+      }
+
+      .hero-card-inner,
+      .simple-card,
+      .highlight-card,
+      .contact-card,
+      .faq-card {
+        padding: 24px;
+      }
+
+      .brand img {
+        width: 148px;
+        height: 148px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <img src="hero.jpg" alt="Bobcat MT100 at night" class="hero-bg">
+    <div class="hero-overlay"></div>
+    <div class="hero-grid"></div>
+
+    <div class="nav">
+      <div class="container nav-inner">
+        <div class="brand">
+          <img src="pinnacle-symbol.png" alt="Pinnacle symbol">
+          <div>
+            <div class="brand-text-top">PINNACLE</div>
+            <div class="brand-text-bottom">EQUIPMENT</div>
+          </div>
+        </div>
+
+        <div class="nav-right">
+          <div class="nav-links">
+            <a href="#benefits">Benefits</a>
+            <a href="#equipment">Equipment</a>
+            <a href="#setup">Setup</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <a href="tel:3302729911" class="phone-pill">330-272-9911</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <div class="container hero-layout">
+        <img src="pinnacle-symbol.png" alt="" class="hero-watermark">
+
+        <div class="hero-left">
+          <a href="/" class="link-back">← Back to main site</a>
+          <div class="hero-pill" style="margin-top:20px;">Contractor Accounts Available</div>
+
+          <h1 class="hero-title">
+            Downtime costs money
+            <span>keep your jobs moving</span>
+          </h1>
+
+          <div class="hero-copy">
+            Get set up once. Rent faster every time. Pinnacle Equipment contractor accounts are built for repeat rentals, faster scheduling, flexible delivery, dependable compact equipment, and simpler account management that helps keep your crew productive.
+          </div>
+
+          <div class="hero-actions">
+            <div class="cta-wrap">
+              <a href="#contact" class="btn-primary">Open a Contractor Account</a>
+              <div class="helper">Reach out for pricing, availability, and account setup</div>
+            </div>
+            <div class="cta-wrap">
+              <a href="#equipment" class="btn-secondary">View Equipment</a>
+              <div class="helper">View available equipment & attachments</div>
+            </div>
+          </div>
+
+          <div class="service-grid">
+            <div class="service-item">Contractor pricing available</div>
+            <div class="service-item">Delivery flexibility</div>
+            <div class="service-item">COI + agreement on file</div>
+            <div class="service-item">Account-based billing options</div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-inner">
+            <div class="featured-pill">Built for repeat rentals</div>
+            <div class="featured-title">Built for repeat rentals</div>
+            <div class="featured-copy">
+              Downtime costs money. Contractor accounts are designed to reduce friction, simplify repeat rentals, and make scheduling easier when work needs to move.
+            </div>
+
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-label">Daily</div>
+                <div class="stat-value">$225</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Weekend</div>
+                <div class="stat-value">$299</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Weekly</div>
+                <div class="stat-value">$795</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Contractor</div>
+                <div class="stat-value" style="font-size:24px;">Pricing Available</div>
+              </div>
+            </div>
+
+            <div class="featured-note">
+              Posted retail pricing is listed clearly. Custom contractor pricing is available for recurring rentals and commercial accounts.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="benefits" class="section">
+    <div class="container">
+      <div class="eyebrow">Account Benefits</div>
+      <h2 class="section-title">Built for contractors who rent more than once</h2>
+      <div class="section-copy">
+        Contractor accounts are designed to simplify repeat rentals, reduce downtime, and keep your crew moving without unnecessary back-and-forth every time you need equipment.
+      </div>
+
+      <div class="four-grid" style="margin-top:32px;">
+        <div class="card simple-card">
+          <div class="subhead">01</div>
+          <div class="step-title">Contractor pricing</div>
+          <div class="step-copy">Retail pricing stays visible, with account pricing available for repeat rentals and approved commercial accounts.</div>
+        </div>
+
+        <div class="card simple-card">
+          <div class="subhead">02</div>
+          <div class="step-title">Delivery flexibility</div>
+          <div class="step-copy">Jobsite delivery and pickup options built around real scheduling needs in the Mahoning Valley and surrounding areas.</div>
+        </div>
+
+        <div class="card simple-card">
+          <div class="subhead">03</div>
+          <div class="step-title">COI + agreement on file</div>
+          <div class="step-copy">Get set up once so future rentals are faster, cleaner, and easier to coordinate.</div>
+        </div>
+
+        <div class="card simple-card">
+          <div class="subhead">04</div>
+          <div class="step-title">Account billing options</div>
+          <div class="step-copy">Simplified billing options for approved contractor accounts to make repeat rentals easier to manage.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="equipment" class="section muted-band">
+    <div class="container about-grid">
+      <div>
+        <div class="eyebrow">Featured Equipment</div>
+        <h2 class="section-title">Compact equipment. Serious capability.</h2>
+        <div class="about-copy">
+          Pinnacle Equipment is currently built around the Bobcat MT100 compact track loader with practical attachments for contractor and commercial work.
+        </div>
+        <div class="about-copy">
+          It is a strong fit for grading, cleanup, material movement, tight-access work, landscaping, driveway prep, fencing, and general jobsite support.
+        </div>
+        <div class="about-copy">
+          We only advertise the equipment and capabilities we actually have, so what you see is what is available to rent.
+        </div>
+      </div>
+
+      <div class="three-grid" style="grid-template-columns:1fr;">
+        <div class="card highlight-card">
+          <div class="highlight-title">Bobcat MT100</div>
+          <div class="highlight-copy">Compact, capable, and easy to deploy on residential and commercial jobs where access and efficiency matter.</div>
+        </div>
+
+        <div class="card highlight-card">
+          <div class="highlight-title">Available attachments</div>
+          <div class="highlight-copy">Bucket, pallet forks, and auger capability for practical day-to-day contractor work.</div>
+        </div>
+
+        <div class="card highlight-card">
+          <div class="highlight-title">Tight access advantage</div>
+          <div class="highlight-copy">A strong solution for jobs where larger equipment is overkill, harder to place, or tougher to maneuver.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container two-grid">
+      <div class="card image-feature">
+        <img src="machine.jpg" alt="Bobcat MT100 during the day">
+      </div>
+      <div class="card image-feature">
+        <img src="hero.jpg" alt="Bobcat MT100 at night with work lights">
+      </div>
+    </div>
+  </section>
+
+  <section id="setup" class="section">
+    <div class="container">
+      <div class="eyebrow">How Setup Works</div>
+      <h2 class="section-title">Simple account setup for faster future rentals</h2>
+
+      <div class="three-grid" style="margin-top:32px;">
+        <div class="card simple-card">
+          <div class="subhead">01</div>
+          <div class="step-title">Reach out</div>
+          <div class="step-copy">Call or text with your business name, contact info, and the kind of work you typically need equipment for.</div>
+        </div>
+
+        <div class="card simple-card">
+          <div class="subhead">02</div>
+          <div class="step-title">Send account info</div>
+          <div class="step-copy">We’ll get your rental agreement and COI requirements handled so the basics are already in place before the next job.</div>
+        </div>
+
+        <div class="card simple-card">
+          <div class="subhead">03</div>
+          <div class="step-title">Rent faster</div>
+          <div class="step-copy">Once set up, future rentals become quicker to coordinate with simpler scheduling and account-based communication.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section muted-band">
+    <div class="container three-grid">
+      <div class="card faq-card">
+        <div class="faq-title">Do you offer delivery?</div>
+        <div class="faq-copy">Yes. Delivery and pickup are available based on location, scheduling, and current equipment availability.</div>
+      </div>
+
+      <div class="card faq-card">
+        <div class="faq-title">Are retail rates still available?</div>
+        <div class="faq-copy">Yes. Standard posted pricing stays available, with contractor pricing offered for recurring rentals and approved commercial accounts.</div>
+      </div>
+
+      <div class="card faq-card">
+        <div class="faq-title">What do I need to open an account?</div>
+        <div class="faq-copy">Business contact information, a certificate of insurance, and a signed rental agreement are the main pieces needed to get started.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section" style="border-top:1px solid var(--border); background:linear-gradient(180deg,rgba(111,138,58,0.08),transparent 70%);">
+    <div class="container contact-grid">
+      <div>
+        <div class="eyebrow">Contact</div>
+        <h2 class="section-title">Start your contractor setup</h2>
+        <div class="section-copy">
+          Reach out to get contractor pricing, delivery options, and account setup details. Texting is welcome.
+        </div>
+      </div>
+
+      <div class="card contact-card">
+        <div class="contact-info">
+          <div>
+            <div class="contact-label">Phone</div>
+            <div class="contact-value big">330-272-9911</div>
+          </div>
+
+          <div>
+            <div class="contact-label">Website</div>
+            <div class="contact-value">pinnacleequipmentohio.com</div>
+          </div>
+
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value">pinn.equipment@gmail.com</div>
+          </div>
+
+          <div>
+            <div class="contact-label">Service Area</div>
+            <div class="contact-value">Mahoning Valley and surrounding areas</div>
+          </div>
+
+          <div>
+            <div class="contact-label">What to have ready</div>
+            <div class="contact-value">Business name, main contact, COI, and whether you need pickup or delivery. You can send setup details by text or email.</div>
+          </div>
+
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <a href="tel:3302729911" class="contact-button">Call Now</a>
+            <a href="sms:3302729911" class="contact-button" style="background:#C2C2C2; color:#000;">Send a Text</a>
+            <a href="mailto:pinn.equipment@gmail.com" class="contact-button" style="background:rgba(255,255,255,0.08); color:#ffffff; border:1px solid rgba(255,255,255,0.15);">Email Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
