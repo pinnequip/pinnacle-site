@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pinnacle Equipment</title>
+  <title>Pinnacle Equipment | Compact Equipment Rentals in Austintown, Ohio</title>
+  <meta name="description" content="Pinnacle Equipment provides compact equipment rentals based in Austintown, Ohio. Rent a Bobcat MT100 mini skid steer with bucket included, attachment options, pickup, and local delivery." />
+  <link rel="canonical" href="https://pinnacleequipmentohio.com/" />
   <style>
     :root {
       --bg: #0a0a0a;
@@ -27,24 +29,15 @@
       font-family: Inter, Arial, Helvetica, sans-serif;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
 
     .container {
       width: min(1200px, calc(100% - 48px));
       margin: 0 auto;
     }
 
-    .section {
-      padding: 80px 0;
-    }
+    .section { padding: 78px 0; }
 
     .eyebrow {
       color: var(--green);
@@ -95,7 +88,7 @@
       inset: 0;
       background:
         radial-gradient(circle at top, rgba(111,138,58,0.18), transparent 35%),
-        linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.72));
+        linear-gradient(rgba(0,0,0,0.74), rgba(0,0,0,0.76));
     }
 
     .hero-grid {
@@ -164,9 +157,7 @@
       color: #d4d4d8;
     }
 
-    .nav-links a:hover {
-      color: white;
-    }
+    .nav-links a:hover { color: white; }
 
     .phone-pill {
       padding: 10px 16px;
@@ -200,9 +191,7 @@
       pointer-events: none;
     }
 
-    .hero-left {
-      max-width: 720px;
-    }
+    .hero-left { max-width: 760px; }
 
     .hero-pill {
       display: inline-flex;
@@ -218,7 +207,7 @@
 
     .hero-title {
       margin: 0;
-      font-size: clamp(54px, 7vw, 92px);
+      font-size: clamp(52px, 7vw, 92px);
       line-height: 0.95;
       text-transform: uppercase;
       font-weight: 900;
@@ -232,7 +221,7 @@
 
     .hero-copy {
       margin-top: 24px;
-      max-width: 640px;
+      max-width: 660px;
       font-size: 19px;
       line-height: 1.8;
       color: #d4d4d8;
@@ -287,7 +276,7 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
-      max-width: 580px;
+      max-width: 620px;
     }
 
     .service-item {
@@ -340,36 +329,25 @@
       line-height: 1.8;
     }
 
-    .stats-grid {
-      margin-top: 28px;
+    .mini-list {
+      margin: 24px 0 0;
+      padding: 0;
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
+      list-style: none;
     }
 
-    .stat-card {
+    .mini-list li {
       border-radius: 18px;
       border: 1px solid var(--border);
       background: rgba(255,255,255,0.04);
-      padding: 16px;
-    }
-
-    .stat-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--muted-2);
-    }
-
-    .stat-value {
-      margin-top: 10px;
-      font-size: 30px;
-      font-weight: 900;
-      color: white;
+      padding: 14px 16px;
+      color: #e4e4e7;
+      font-size: 14px;
     }
 
     .featured-note {
-      margin-top: 28px;
+      margin-top: 24px;
       border-radius: 18px;
       border: 1px solid var(--border);
       background: rgba(0,0,0,0.40);
@@ -379,29 +357,17 @@
       line-height: 1.8;
     }
 
-    .equipment-grid,
-    .about-grid,
-    .contact-grid {
+    .two-grid, .three-grid, .contact-grid, .about-grid {
       display: grid;
       gap: 24px;
     }
 
-    .equipment-grid {
-      grid-template-columns: 1.1fr 0.9fr;
-    }
+    .two-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .three-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .about-grid { grid-template-columns: 1fr 0.95fr; }
+    .contact-grid { grid-template-columns: 1fr 0.9fr; }
 
-    .image-card {
-      overflow: hidden;
-      height: 100%;
-    }
-
-    .image-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .content-card {
+    .simple-card, .faq-card, .highlight-card, .contact-card, .equipment-card {
       padding: 32px;
     }
 
@@ -412,59 +378,18 @@
       color: var(--muted-2);
     }
 
-    .machine-title {
-      margin-top: 10px;
-      font-size: 34px;
+    .card-title {
+      margin-top: 12px;
+      font-size: 26px;
+      line-height: 1.1;
       font-weight: 900;
       text-transform: uppercase;
     }
 
-    .machine-copy {
-      margin-top: 16px;
+    .card-copy {
+      margin-top: 14px;
       color: var(--muted);
       line-height: 1.8;
-    }
-
-    .divider {
-      margin-top: 32px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-    }
-
-    .attachment-list {
-      margin-top: 16px;
-      display: grid;
-      gap: 12px;
-    }
-
-    .attachment-item {
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      background: rgba(0,0,0,0.30);
-      padding: 16px;
-    }
-
-    .attachment-name {
-      font-weight: 700;
-    }
-
-    .attachment-detail {
-      margin-top: 6px;
-      color: var(--muted-2);
-      font-size: 14px;
-    }
-
-    .two-grid,
-    .three-grid {
-      display: grid;
-      gap: 24px;
-    }
-
-    .two-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .three-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-
-    .simple-card {
-      padding: 32px;
     }
 
     .simple-card ul {
@@ -474,27 +399,55 @@
       line-height: 2;
     }
 
-    .price-card {
-      padding: 32px;
-      background: rgba(0,0,0,0.30);
-    }
-
-    .price-value {
-      margin-top: 16px;
-      font-size: 54px;
-      font-weight: 900;
-    }
-
-    .price-note {
-      margin-top: 14px;
-      color: var(--muted);
-      line-height: 1.8;
-    }
-
     .muted-band {
       background: rgba(255,255,255,0.02);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
+    }
+
+    .equipment-feature {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .image-card {
+      overflow: hidden;
+      min-height: 430px;
+    }
+
+    .image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .price-preview {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .price-chip {
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.30);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .price-chip-label {
+      color: var(--muted-2);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .price-chip-value {
+      margin-top: 8px;
+      font-size: 28px;
+      font-weight: 900;
     }
 
     .step-number {
@@ -504,56 +457,21 @@
       line-height: 1;
     }
 
-    .step-title {
+    .step-title, .faq-title, .highlight-title {
       margin-top: 18px;
-      font-size: 24px;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    .step-copy {
-      margin-top: 16px;
-      color: var(--muted);
-      line-height: 1.8;
-    }
-
-    .about-grid { grid-template-columns: 1fr 0.95fr; }
-
-    .about-copy {
-      color: var(--muted);
-      line-height: 1.9;
-      max-width: 760px;
-    }
-
-    .about-copy + .about-copy {
-      margin-top: 18px;
-    }
-
-    .faq-card,
-    .highlight-card {
-      padding: 32px;
-      background: rgba(0,0,0,0.30);
-    }
-
-    .faq-title,
-    .highlight-title {
       font-size: 22px;
       font-weight: 900;
       text-transform: uppercase;
     }
 
-    .faq-copy,
-    .highlight-copy {
+    .step-copy, .faq-copy, .highlight-copy, .about-copy {
       margin-top: 16px;
       color: var(--muted);
       line-height: 1.8;
     }
 
-    .contact-grid { grid-template-columns: 1fr 0.9fr; }
-
-    .contact-card {
-      padding: 32px;
-    }
+    .about-copy { max-width: 760px; }
+    .about-copy + .about-copy { margin-top: 18px; }
 
     .contact-info {
       display: grid;
@@ -596,7 +514,7 @@
 
     @media (max-width: 980px) {
       .hero-layout,
-      .equipment-grid,
+      .equipment-feature,
       .about-grid,
       .contact-grid,
       .three-grid,
@@ -610,70 +528,41 @@
         display: none;
       }
 
-      .hero {
-        min-height: auto;
-      }
-
-      .hero-content {
-        padding-bottom: 80px;
-      }
-
-      .brand-text-top {
-        font-size: 24px;
-      }
-
-      .service-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .image-card img {
-        min-height: 320px;
-      }
+      .hero { min-height: auto; }
+      .hero-content { padding-bottom: 80px; }
+      .brand-text-top { font-size: 24px; }
+      .service-grid { grid-template-columns: 1fr; }
+      .image-card img { min-height: 320px; }
     }
 
     @media (max-width: 640px) {
-      .container {
-        width: min(100% - 28px, 1200px);
-      }
-
-      .section {
-        padding: 58px 0;
-      }
-
-      .hero-title {
-        font-size: 46px;
-      }
-
-      .hero-copy {
-        font-size: 17px;
-      }
-
+      .container { width: min(100% - 28px, 1200px); }
+      .section { padding: 58px 0; }
+      .hero-title { font-size: 44px; }
+      .hero-copy { font-size: 17px; }
       .hero-card-inner,
-      .content-card,
       .simple-card,
-      .price-card,
       .faq-card,
       .highlight-card,
-      .contact-card {
+      .contact-card,
+      .equipment-card {
         padding: 24px;
       }
-
-      .stats-grid {
-        grid-template-columns: 1fr 1fr;
-      }
+      .price-preview { grid-template-columns: 1fr; }
+      .brand img { width: 160px; height: 160px; }
     }
   </style>
 </head>
 <body>
   <section class="hero">
-    <img src="hero.jpg" alt="Bobcat MT100 at night" class="hero-bg">
+    <img src="hero.jpg" alt="Bobcat MT100 mini skid steer rental in Austintown Ohio" class="hero-bg">
     <div class="hero-overlay"></div>
     <div class="hero-grid"></div>
 
     <div class="nav">
       <div class="container nav-inner">
         <a href="index.html" class="brand">
-          <img src="pinnacle-symbol.png" alt="Pinnacle symbol">
+          <img src="pinnacle-symbol.png" alt="Pinnacle Equipment symbol">
           <div>
             <div class="brand-text-top">PINNACLE</div>
             <div class="brand-text-bottom">EQUIPMENT</div>
@@ -682,7 +571,7 @@
         <div class="nav-right">
           <div class="nav-links">
             <a href="#equipment">Equipment</a>
-            <a href="#pricing">Pricing</a>
+            <a href="mini-skid-steer-rental-austintown-ohio.html">MT100 Rental</a>
             <a href="contractor-account.html">Contractors</a>
             <a href="#how-it-works">How It Works</a>
             <a href="#about">About</a>
@@ -698,17 +587,15 @@
         <img src="pinnacle-symbol.png" alt="" class="hero-watermark">
 
         <div class="hero-left">
-          <div class="hero-pill">Equipment Rentals — Delivered When You Need It</div>
+          <div class="hero-pill">Compact Equipment Rentals — Austintown, Ohio</div>
 
           <h1 class="hero-title">
-            Stay on top
-            <span>with dependable rentals</span>
+            Job-ready rentals
+            <span>without the runaround</span>
           </h1>
 
           <div class="hero-copy">
-            Based in Austintown, serving Northeast Ohio. Pinnacle Equipment provides practical,
-            job-ready rental equipment for contractors, property owners, and professionals who need
-            reliable machines without unnecessary hassle.
+            Pinnacle Equipment provides compact equipment rentals for contractors, property owners, landscapers, and homeowners around Austintown and Northeast Ohio. Start with the Bobcat MT100 mini skid steer, then choose pickup or local delivery based on availability.
           </div>
 
           <div class="hero-actions">
@@ -716,47 +603,41 @@
               <a href="#contact" class="btn-primary">Check Availability</a>
               <div class="helper">Text or call for fastest response</div>
             </div>
-            <a href="#equipment" class="btn-secondary">View Equipment</a>
+            <div class="cta-wrap">
+              <a href="mini-skid-steer-rental-austintown-ohio.html" class="btn-secondary">View MT100 Rental</a>
+              <div class="helper">Rates, uses, attachments, and FAQ</div>
+            </div>
           </div>
 
           <div class="service-grid">
-            <div class="service-item">Mini skid steer rentals</div>
-            <div class="service-item">Attachment rentals</div>
-            <div class="service-item">Delivery available</div>
-            <div class="service-item">Contractor and homeowner friendly</div>
+            <div class="service-item">Bobcat MT100 mini skid steer</div>
+            <div class="service-item">Bucket included</div>
+            <div class="service-item">Forks & auger options</div>
+            <div class="service-item">Pickup or local delivery</div>
           </div>
         </div>
 
         <div class="hero-card">
           <div class="hero-card-inner">
-            <div class="featured-pill">Featured machine</div>
+            <div class="featured-pill">Featured Rental</div>
             <div class="featured-title">Bobcat MT100</div>
             <div class="featured-copy">
-              Compact power for grading, cleanup, material handling, and residential or contractor jobs.
+              Compact equipment for mulch, stone, dirt, cleanup, grading prep, material handling, fence projects, and tight-access work.
             </div>
 
-            <div class="stats-grid">
-              <div class="stat-card">
-                <div class="stat-label">Daily</div>
-                <div class="stat-value">$225</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-label">Weekend</div>
-                <div class="stat-value">$299</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-label">Weekly</div>
-                <div class="stat-value">$795</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-label">Delivery</div>
-                <div class="stat-value" style="font-size:24px;">Available</div>
-              </div>
-            </div>
+            <ul class="mini-list">
+              <li>Rental starts at $225/day</li>
+              <li>Weekend and weekly rates available</li>
+              <li>Bucket included with rental</li>
+              <li>Pickup or local delivery confirmed at booking</li>
+            </ul>
 
             <div class="featured-note">
-              Pickup is available. Delivery and scheduling are confirmed based on availability,
-              cleaning, and inspection.
+              For full pricing, attachment details, common uses, and service area information, view the dedicated MT100 rental page.
+            </div>
+
+            <div class="hero-actions" style="margin-top:22px;">
+              <a href="mini-skid-steer-rental-austintown-ohio.html" class="btn-primary">Rental Details</a>
             </div>
           </div>
         </div>
@@ -767,246 +648,187 @@
   <section id="equipment" class="section">
     <div class="container">
       <div class="eyebrow">Equipment</div>
-      <h2 class="section-title">Practical equipment for real work</h2>
+      <h2 class="section-title">Compact equipment for real property work</h2>
       <div class="section-copy">
-        Built around clean, capable rentals that make sense for both contractor and homeowner jobs.
+        Pinnacle Equipment is focused on practical rentals that help move jobs forward without overcomplicating the process. The current featured rental is the Bobcat MT100 mini skid steer with useful attachment options.
       </div>
 
-      <div class="equipment-grid" style="margin-top:32px;">
+      <div class="equipment-feature">
         <div class="card image-card">
-          <img src="machine.jpg" alt="Bobcat MT100 working on site">
+          <img src="machine.jpg" alt="Bobcat MT100 mini skid steer working on site">
         </div>
 
-        <div class="card content-card">
-          <div class="subhead">Machine</div>
-          <div class="machine-title">Bobcat MT100</div>
-          <div class="machine-copy">
-            A compact track loader that is easy to transport, strong for its size, and useful for a wide range
-            of jobs from cleanup and material movement to grading and property work.
+        <div class="card equipment-card">
+          <div class="subhead">Featured Machine</div>
+          <div class="card-title">Bobcat MT100 Mini Skid Steer</div>
+          <div class="card-copy">
+            A compact track loader for material movement, cleanup, grading prep, tight access, and contractor or homeowner property projects.
           </div>
 
-          <div class="divider">
-            <div class="subhead">Attachments</div>
-            <div class="attachment-list">
-              <div class="attachment-item">
-                <div class="attachment-name">Bucket</div>
-                <div class="attachment-detail">General cleanup, grading, and material handling</div>
-              </div>
-              <div class="attachment-item">
-                <div class="attachment-name">Pallet Forks</div>
-                <div class="attachment-detail">Move materials, pallets, and jobsite supplies</div>
-              </div>
-              <div class="attachment-item">
-                <div class="attachment-name">Auger (Coming Soon)</div>
-                <div class="attachment-detail">Post holes, fencing, and digging applications</div>
-              </div>
-              <div class="attachment-item">
-                <div class="attachment-name">More attachments coming soon</div>
-                <div class="attachment-detail">Built to grow with real customer demand</div>
-              </div>
+          <div class="price-preview">
+            <div class="price-chip">
+              <div class="price-chip-label">Daily</div>
+              <div class="price-chip-value">$225</div>
+            </div>
+            <div class="price-chip">
+              <div class="price-chip-label">Weekend</div>
+              <div class="price-chip-value">$299</div>
+            </div>
+            <div class="price-chip">
+              <div class="price-chip-label">Weekly</div>
+              <div class="price-chip-value">$795</div>
             </div>
           </div>
+
+          <div class="card-copy">
+            Bucket included. Pallet forks and auger options available. Delivery, pickup, fuel, cleaning, and availability are confirmed before booking.
+          </div>
+
+          <div class="hero-actions" style="margin-top:26px;">
+            <a href="mini-skid-steer-rental-austintown-ohio.html" class="btn-primary">View Full Rental Page</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container two-grid">
-      <div class="card simple-card">
-        <div class="subhead">Delivery & Pickup</div>
-        <ul>
-          <li>Pickup available</li>
-          <li>Delivery available within roughly 25–30 miles</li>
-          <li>Delivery pricing based on distance</li>
-        </ul>
-      </div>
-
-      <div class="card simple-card">
-        <div class="subhead">Built For</div>
-        <ul>
-          <li>Contractors</li>
-          <li>Property owners</li>
-          <li>Weekend projects</li>
-          <li>Land clearing & cleanup</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="pricing" class="section muted-band">
+  <section class="section muted-band">
     <div class="container">
-      <div class="eyebrow">Pricing</div>
-      <h2 class="section-title">Clear rates. Straightforward rentals.</h2>
+      <div class="eyebrow">Common Jobs</div>
+      <h2 class="section-title">Built around the jobs people actually need done</h2>
       <div class="section-copy">
-        Practical pricing designed to stay competitive while keeping the process simple.
+        The homepage stays simple. The dedicated rental page goes deeper into attachment details, delivery, service area, and frequently asked questions.
       </div>
 
       <div class="three-grid" style="margin-top:32px;">
-        <div class="card price-card">
-          <div class="subhead">Daily</div>
-          <div class="price-value">$225</div>
-          <div class="price-note">Strong value for single-day projects</div>
+        <div class="card simple-card">
+          <div class="subhead">Material Moving</div>
+          <div class="card-title">Mulch, stone, dirt & topsoil</div>
+          <div class="card-copy">Move material faster and reduce wheelbarrow work on landscaping and property projects.</div>
         </div>
 
-        <div class="card price-card">
-          <div class="subhead">Weekend</div>
-          <div class="price-value">$299</div>
-          <div class="price-note">Great for Friday to Monday jobs</div>
+        <div class="card simple-card">
+          <div class="subhead">Property Work</div>
+          <div class="card-title">Cleanup, prep & tight access</div>
+          <div class="card-copy">Useful for cleanup, grading prep, driveway work, and areas where larger equipment may be too much.</div>
         </div>
 
-        <div class="card price-card">
-          <div class="subhead">Weekly</div>
-          <div class="price-value">$795</div>
-          <div class="price-note">For longer contracting or property work</div>
+        <div class="card simple-card">
+          <div class="subhead">Attachments</div>
+          <div class="card-title">Forks & auger options</div>
+          <div class="card-copy">Attachment options help support material handling, fence posts, deck footers, and contractor work.</div>
         </div>
-      </div>
-
-      <div class="card simple-card" style="margin-top:24px; background:rgba(0,0,0,0.30);">
-        Attachment pricing, delivery fees, cleaning charges, fuel charges, and other terms can be confirmed at booking.
       </div>
     </div>
   </section>
 
   <section class="section">
-  <div class="container">
-    <div class="card simple-card" style="background: linear-gradient(180deg, rgba(111,138,58,0.10), rgba(0,0,0,0.22));">
-
-      <div class="eyebrow">For Contractors</div>
-
-      <h2 class="section-title">
-        Contractor Accounts Available
-      </h2>
-
-      <div class="section-copy">
-        Built for repeat rentals, contractor pricing, delivery flexibility, and faster setup with COI and rental agreement on file.
-      </div>
-
-      <div class="hero-actions" style="margin-top: 28px;">
-
-        <div class="cta-wrap">
-          <a href="contractor-account.html" class="btn-primary">
-            Start Contractor Setup
-          </a>
-          <div class="helper">
-            Commercial accounts and repeat renters
-          </div>
+    <div class="container">
+      <div class="card simple-card" style="background: linear-gradient(180deg, rgba(111,138,58,0.10), rgba(0,0,0,0.22));">
+        <div class="eyebrow">For Contractors</div>
+        <h2 class="section-title">Contractor accounts available</h2>
+        <div class="section-copy">
+          Built for repeat rentals, contractor pricing, delivery flexibility, and faster setup with COI and rental agreement on file.
         </div>
 
-        <div class="cta-wrap">
-          <a href="contractor-account.html" class="btn-secondary">
-            Learn More
-          </a>
-          <div class="helper">
-            View contractor account details
+        <div class="hero-actions" style="margin-top: 28px;">
+          <div class="cta-wrap">
+            <a href="contractor-account.html" class="btn-primary">Start Contractor Setup</a>
+            <div class="helper">Commercial accounts and repeat renters</div>
+          </div>
+
+          <div class="cta-wrap">
+            <a href="contractor-account.html" class="btn-secondary">Learn More</a>
+            <div class="helper">View contractor account details</div>
           </div>
         </div>
-
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-  <section id="how-it-works" class="section">
+  <section id="how-it-works" class="section muted-band">
     <div class="container">
       <div class="eyebrow">How It Works</div>
-      <h2 class="section-title">Simple from first message to delivery</h2>
+      <h2 class="section-title">Simple from first message to rental day</h2>
 
       <div class="three-grid" style="margin-top:32px;">
         <div class="card simple-card">
           <div class="step-number">01</div>
           <div class="step-title">Request availability</div>
-          <div class="step-copy">
-            Reach out with your dates, job type, and whether you need pickup or delivery.
-          </div>
+          <div class="step-copy">Reach out with your date, job location, and whether you need pickup or delivery.</div>
         </div>
 
         <div class="card simple-card">
           <div class="step-number">02</div>
-          <div class="step-title">Confirm details</div>
-          <div class="step-copy">
-            We confirm equipment, attachments, pricing, and scheduling based on availability.
-          </div>
+          <div class="step-title">Confirm the setup</div>
+          <div class="step-copy">We confirm the machine, attachments, pricing, delivery or pickup details, and scheduling.</div>
         </div>
 
         <div class="card simple-card">
           <div class="step-number">03</div>
           <div class="step-title">Get to work</div>
-          <div class="step-copy">
-            Pick up your rental or have it delivered ready for the job.
-          </div>
+          <div class="step-copy">Pick up your rental or have it delivered after availability, cleaning, and inspection are confirmed.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="about" class="section muted-band">
+  <section id="about" class="section">
     <div class="container about-grid">
       <div>
         <div class="eyebrow">About Pinnacle</div>
-        <h2 class="section-title">Dependable equipment without the runaround</h2>
+        <h2 class="section-title">A simpler local rental option</h2>
         <div class="about-copy">
-          Pinnacle Equipment is built around a simple idea: provide dependable, practical equipment rentals
-          with responsive communication and straightforward service. The focus is on clean machines, useful
-          attachments, honest scheduling, and helping customers stay productive.
+          Pinnacle Equipment was built to give contractors, property owners, landscapers, and homeowners a straightforward local option for compact equipment rentals in the Austintown and Northeast Ohio area.
         </div>
         <div class="about-copy">
-          Whether the job is residential cleanup, contractor work, grading, material handling, or property
-          improvement, Pinnacle is built to make the rental process easier and more dependable.
+          The focus is practical equipment, clear communication, honest scheduling, and rental support that helps customers keep jobs moving without unnecessary hassle.
         </div>
       </div>
 
       <div class="three-grid" style="grid-template-columns:1fr;">
         <div class="card highlight-card">
           <div class="highlight-title">Job-ready equipment</div>
-          <div class="highlight-copy">
-            Reliable, clean, and well-maintained equipment that is ready to work when it arrives.
-          </div>
+          <div class="highlight-copy">Clean, useful equipment prepared for real homeowner, property, and contractor work.</div>
         </div>
 
         <div class="card highlight-card">
           <div class="highlight-title">Straightforward service</div>
-          <div class="highlight-copy">
-            Simple rental process, responsive communication, and clear delivery expectations.
-          </div>
+          <div class="highlight-copy">Simple rental process, responsive communication, and clear expectations before booking.</div>
         </div>
 
         <div class="card highlight-card">
-          <div class="highlight-title">Built for Northeast Ohio</div>
-          <div class="highlight-copy">
-            Local service with practical delivery options for contractors, property owners, and weekend projects.
-          </div>
+          <div class="highlight-title">Based in Austintown</div>
+          <div class="highlight-copy">Serving nearby Northeast Ohio areas with pickup and local delivery options based on availability.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section muted-band">
     <div class="container">
       <div class="eyebrow">Questions</div>
-      <h2 class="section-title">Common questions before booking</h2>
+      <h2 class="section-title">Quick answers before booking</h2>
 
       <div class="three-grid" style="margin-top:32px;">
         <div class="card faq-card">
           <div class="faq-title">Do you offer delivery?</div>
-          <div class="faq-copy">
-            Yes. Delivery and pickup are available based on location, scheduling, and current equipment availability.
-          </div>
+          <div class="faq-copy">Yes. Local delivery and pickup are available based on location, scheduling, and current equipment availability.</div>
         </div>
 
         <div class="card faq-card">
           <div class="faq-title">Can customers pick up equipment?</div>
-          <div class="faq-copy">
-            Yes. Pickup is available for customers with the right towing capacity, trailer setup, and securement equipment.
-          </div>
+          <div class="faq-copy">Yes. Pickup is available for qualified customers with the proper towing capacity, trailer setup, and securement equipment.</div>
         </div>
 
         <div class="card faq-card">
-          <div class="faq-title">Who is this equipment for?</div>
-          <div class="faq-copy">
-            Pinnacle serves contractors, property owners, and customers who need dependable equipment without a complicated rental process.
-          </div>
+          <div class="faq-title">Where are full rental details?</div>
+          <div class="faq-copy">The dedicated MT100 rental page includes pricing, common uses, attachments, delivery notes, service areas, and rental FAQs.</div>
         </div>
+      </div>
+
+      <div class="hero-actions" style="margin-top:32px;">
+        <a href="mini-skid-steer-rental-austintown-ohio.html" class="btn-primary">View MT100 Rental Details</a>
       </div>
     </div>
   </section>
@@ -1017,8 +839,7 @@
         <div class="eyebrow">Contact</div>
         <h2 class="section-title">Get pricing and availability</h2>
         <div class="section-copy">
-          Reach out for scheduling, delivery options, attachment availability, and current rental pricing.
-          Texting is welcome.
+          Reach out with your project date, job location, and whether you need pickup or delivery. Texting is welcome and usually the fastest way to start.
         </div>
       </div>
 
@@ -1036,17 +857,13 @@
 
           <div>
             <div class="contact-label">Availability Note</div>
-            <div class="contact-value">
-              Equipment availability and delivery timing are confirmed once equipment is cleaned and inspected.
-            </div>
+            <div class="contact-value">Equipment availability and delivery timing are confirmed once equipment is cleaned and inspected.</div>
           </div>
 
-         <div style="display:flex; gap:12px;">
-           <a href="tel:3302729911" class="contact-button">Call Now</a>
-           <a href="sms:3302729911" class="contact-button" style="background:#C2C2C2; color:#000;">
-    Text Now
-           </a>
-         </div>
+          <div style="display:flex; gap:12px;">
+            <a href="tel:3302729911" class="contact-button">Call Now</a>
+            <a href="sms:3302729911" class="contact-button" style="background:#C2C2C2; color:#000;">Text Now</a>
+          </div>
         </div>
       </div>
     </div>
