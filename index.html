@@ -344,6 +344,32 @@
       line-height: 1.8;
     }
 
+
+    .local-photo-grid {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .local-photo-card {
+      overflow: hidden;
+    }
+
+    .local-photo-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+
+    .local-photo-copy {
+      padding: 22px;
+    }
+
+    .local-photo-copy .card-title {
+      font-size: 22px;
+    }
+
     .two-grid, .three-grid, .contact-grid, .about-grid {
       display: grid;
       gap: 24px;
@@ -501,6 +527,7 @@
 
     @media (max-width: 980px) {
       .hero-layout,
+      .local-photo-grid,
       .equipment-feature,
       .about-grid,
       .contact-grid,
@@ -677,6 +704,46 @@
           <div class="subhead">Attachments</div>
           <div class="card-title">Forks & auger options</div>
           <div class="card-copy">Attachment options help support material handling, fence posts, deck footers, and contractor work.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="recent-work" class="section">
+    <div class="container">
+      <div class="eyebrow">Recent Work</div>
+      <h2 class="section-title">Photos from local jobs</h2>
+      <div class="section-copy">
+        A quick look at how the mini skid steer is used for material moving, cleanup, post holes, and property projects around the Mahoning Valley.
+      </div>
+
+      <div class="local-photo-grid">
+        <div class="card local-photo-card">
+          <img src="machine.jpg" alt="Mini skid steer rental moving material around the Mahoning Valley">
+          <div class="local-photo-copy">
+            <div class="subhead">Material Moving</div>
+            <div class="card-title">Mulch, stone, dirt & debris</div>
+            <div class="card-copy">Useful for moving material faster and cutting down on wheelbarrow work.</div>
+          </div>
+        </div>
+
+        <div class="card local-photo-card">
+          <img src="hero.jpg" alt="Mini skid steer rental for tight access property work in Northeast Ohio">
+          <div class="local-photo-copy">
+            <div class="subhead">Tight Access</div>
+            <div class="card-title">Backyards, driveways & cleanup</div>
+            <div class="card-copy">A compact option for smaller areas where larger equipment may be too much.</div>
+          </div>
+        </div>
+
+        <div class="card local-photo-card">
+          <img src="machine.jpg" alt="Mini skid steer with auger and pallet fork options for local jobs">
+          <div class="local-photo-copy">
+            <div class="subhead">Attachments</div>
+            <div class="card-title">Forks & auger options</div>
+            <div class="card-copy">Add forks for material handling or the auger for post holes and similar projects.</div>
+          </div>
         </div>
       </div>
     </div>
