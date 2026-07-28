@@ -1,9 +1,10 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "redirects": [
     {
-      "source": "/mini-skid-steer-rental-austintown-ohio.html",
-      "destination": "/mini-skid-steer-rental.html",
+      "source": "/mini-skid-steer-rental-austintown-ohio",
+      "destination": "/mini-skid-steer-rental",
       "permanent": true
     }
   ]
