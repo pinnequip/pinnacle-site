@@ -1,0 +1,10 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/mini-skid-steer-rental-austintown-ohio.html",
+      "destination": "/mini-skid-steer-rental",
+      "permanent": true
+    }
+  ]
+}
