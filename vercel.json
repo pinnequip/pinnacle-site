@@ -6,6 +6,11 @@
       "source": "/mini-skid-steer-rental-austintown-ohio",
       "destination": "/mini-skid-steer-rental",
       "permanent": true
+    },
+    {
+      "source": "/mini-skid-steer-rental-austintown-ohio.html",
+      "destination": "/mini-skid-steer-rental",
+      "permanent": true
     }
   ]
 }
