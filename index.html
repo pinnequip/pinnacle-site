@@ -79,6 +79,27 @@
       min-height: 100vh;
     }
 
+    .topo-showcase {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      background: #050505;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .topo-showcase picture {
+      display: block;
+      width: 100%;
+    }
+
+    .topo-showcase img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
     .hero-bg {
       position: absolute;
       inset: 0;
@@ -666,6 +687,20 @@
           <a href="tel:3302729911" class="phone-pill">330-272-9911</a>
         </div>
       </div>
+    </div>
+
+    <div class="topo-showcase">
+      <picture>
+        <source
+          media="(max-width: 700px)"
+          srcset="/images/pinnacle-topo-mobile.webp"
+        >
+        <img
+          src="/images/pinnacle-topo-desktop.webp"
+          alt="Pinnacle Equipment — Stay on Top"
+          fetchpriority="high"
+        >
+      </picture>
     </div>
 
     <div class="hero-content">
