@@ -667,6 +667,136 @@
       .photo-placeholder,
       .compare-image { min-height: 220px; }
     }
+
+    /* Guide photographs: retain every edge of the supplied images. */
+    .guide-card-wide { grid-column: 1 / -1; }
+    .guide-grid > *, .photo-grid-2 > *, .photo-grid-3 > *,
+    .compare-grid > *, .four-point-wrap > * { min-width: 0; }
+
+    .guide-photo {
+      margin: 24px 0 0;
+      overflow: hidden;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: #101011;
+    }
+
+    .photo-grid-2 .guide-photo,
+    .photo-grid-3 .guide-photo { margin-top: 0; }
+
+    .photo-link {
+      display: block;
+      cursor: zoom-in;
+      background: #101011;
+    }
+
+    .photo-link:focus-visible {
+      outline: 3px solid #c9d8a8;
+      outline-offset: -3px;
+    }
+
+    .photo-link img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 580px;
+      object-fit: contain;
+    }
+
+    .guide-photo figcaption {
+      padding: 14px 16px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .photo-hint {
+      display: block;
+      margin-top: 4px;
+      color: #c9d8a8;
+      font-size: 12px;
+    }
+
+    .position-photos { grid-template-columns: 1.5fr 1fr; }
+    .position-photos img { height: 360px; }
+    .latch-photo { max-width: 680px; margin-inline: auto; }
+
+    .compare-image.has-photo {
+      display: block;
+      padding: 0;
+      min-height: 0;
+    }
+
+    .compare-image.has-photo .photo-hint {
+      margin: 0;
+      padding: 10px 16px;
+      text-align: left;
+    }
+
+    .compare-status { line-height: 1.5; }
+    .status-icon { flex: 0 0 28px; }
+    .binder-comparison { margin-top: 42px; }
+    .orientation-note { margin-top: 18px; }
+    .attachment-note { margin-top: 20px; }
+
+    .photo-viewer {
+      width: min(1140px, calc(100% - 24px));
+      max-width: none;
+      max-height: 94vh;
+      max-height: 94dvh;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: #101011;
+      color: #fff;
+    }
+
+    .photo-viewer::backdrop { background: rgba(0,0,0,0.9); }
+    .photo-viewer[open] { display: flex; flex-direction: column; }
+    .viewer-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .viewer-top h2 { margin: 0; font-size: 16px; }
+    .viewer-close {
+      min-width: 76px;
+      min-height: 44px;
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: #fff;
+      background: #242424;
+      font: inherit;
+      cursor: pointer;
+    }
+    .viewer-close:focus-visible { outline: 3px solid #c9d8a8; outline-offset: 2px; }
+    .viewer-photo {
+      display: block;
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      min-height: 0;
+      max-height: calc(88vh - 124px);
+      max-height: calc(88dvh - 124px);
+      object-fit: contain;
+      margin: 16px auto 0;
+    }
+    .viewer-caption { margin: 14px 0 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
+    body.photo-viewer-open { overflow: hidden; }
+
+    @media (max-width: 980px) {
+      .position-photos { grid-template-columns: 1fr; }
+      .position-photos img { height: auto; max-height: 520px; }
+    }
+    @media (max-width: 640px) {
+      .section-step-head { grid-template-columns: 1fr; gap: 12px; }
+      .guide-photo { border-radius: 16px; }
+      .photo-viewer { padding: 12px; }
+      .brand-text-top { letter-spacing: 0.18em; }
+      .nav-inner { gap: 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+
   </style>
 </head>
 <body>
@@ -731,7 +861,7 @@
     <div class="container">
       <div class="eyebrow">Loading</div>
       <h2 class="section-title">Load it the same way every time</h2>
-      <div class="section-copy">The goal is to remove guesswork. Each step below will eventually use a photo of the actual Pinnacle trailer and MT100 so the customer can compare the guide directly with what is in front of them.</div>
+      <div class="section-copy">Follow the steps below and compare your setup with the photos of the Pinnacle trailer and MT100. Tap any photo to enlarge the details.</div>
 
       <div class="guide-grid">
         <div class="card guide-card">
@@ -747,12 +877,18 @@
             <li>Tilt lock engaged for transport</li>
           </ul>
           <div class="photo-grid-2">
-            <div class="photo-placeholder">
-              <div><strong>Photo Placeholder</strong>Full hitch / coupler setup with the correct connection points labeled.</div>
-            </div>
-            <div class="photo-placeholder">
-              <div><strong>Reminder Photo</strong>Close-up of the trailer tilt lock / latch fully engaged before transport.</div>
-            </div>
+            <figure class="guide-photo ">
+            <a class="photo-link " href="images/mt100-guide/trailer-hitch-connections.jpg" data-photo aria-label="Enlarge photo: Pinnacle trailer tongue, hitch connection, safety chains and raised jack beside the tow vehicle.">
+              <img src="images/mt100-guide/trailer-hitch-connections.jpg" alt="Pinnacle trailer tongue, hitch connection, safety chains and raised jack beside the tow vehicle." width="2048" height="1152" loading="lazy" decoding="async">
+            </a>
+            <figcaption>Hitch and trailer connections.<span class="photo-hint">Tap to enlarge</span></figcaption>
+          </figure>
+            <figure class="guide-photo ">
+            <a class="photo-link " href="images/mt100-guide/trailer-tilt-latch.jpg" data-photo aria-label="Enlarge photo: Close-up of the trailer tilt latch beside the fender.">
+              <img src="images/mt100-guide/trailer-tilt-latch.jpg" alt="Close-up of the trailer tilt latch beside the fender." width="2048" height="1152" loading="lazy" decoding="async">
+            </a>
+            <figcaption>Locate the trailer tilt latch.<span class="photo-hint">Tap to enlarge</span></figcaption>
+          </figure>
           </div>
         </div>
 
@@ -760,21 +896,35 @@
           <div class="step-number">02</div>
           <div class="step-title">Back the MT100 on</div>
           <div class="step-copy">With the standard bucket, align the machine straight with the trailer and back onto the deck slowly. Keep the bucket low and keep bystanders clear.</div>
-          <div class="photo-placeholder">
-            <div><strong>Photo Placeholder</strong>Rear three-quarter view showing the MT100 aligned with the trailer and a subtle “BACK ON →” annotation.</div>
-          </div>
+          <figure class="guide-photo ">
+            <a class="photo-link " href="images/mt100-guide/mt100-back-onto-trailer.jpg" data-photo aria-label="Enlarge photo: MT100 with bucket facing away from the tilted trailer deck, positioned to back onto the trailer.">
+              <img src="images/mt100-guide/mt100-back-onto-trailer.jpg" alt="MT100 with bucket facing away from the tilted trailer deck, positioned to back onto the trailer." width="2048" height="1151" loading="lazy" decoding="async">
+            </a>
+            <figcaption>Back onto the trailer with the standard bucket.<span class="photo-hint">Tap to enlarge</span></figcaption>
+          </figure>
         </div>
 
-        <div class="card guide-card">
+        <div class="card guide-card guide-card-wide">
           <div class="step-number">03</div>
           <div class="step-title">Stop at the marked position</div>
           <div class="step-copy">Continue backward until the designated reference point on the MT100 lines up with the marked transport position on the trailer.</div>
-          <div class="photo-placeholder">
-            <div><strong>Photo Placeholder</strong>Side profile showing the exact stopping position with a “STOP HERE ↓” marker.</div>
+          <div class="photo-grid-2 position-photos">
+            <figure class="guide-photo ">
+            <a class="photo-link " href="images/mt100-guide/mt100-trailer-overview.jpg" data-photo aria-label="Enlarge photo: MT100 positioned on the trailer with the bucket lowered onto the deck.">
+              <img src="images/mt100-guide/mt100-trailer-overview.jpg" alt="MT100 positioned on the trailer with the bucket lowered onto the deck." width="2048" height="1152" loading="lazy" decoding="async">
+            </a>
+            <figcaption>Machine positioned on the trailer.<span class="photo-hint">Tap to enlarge</span></figcaption>
+          </figure>
+            <figure class="guide-photo ">
+            <a class="photo-link " href="images/mt100-guide/track-stop-marker.jpg" data-photo aria-label="Enlarge photo: Close-up showing the MT100 track and the green STOP TRACKS HERE marker on the trailer.">
+              <img src="images/mt100-guide/track-stop-marker.jpg" alt="Close-up showing the MT100 track and the green STOP TRACKS HERE marker on the trailer." width="1152" height="2048" loading="lazy" decoding="async">
+            </a>
+            <figcaption>Use the “STOP TRACKS HERE” marker as your reference.<span class="photo-hint">Tap to enlarge</span></figcaption>
+          </figure>
           </div>
         </div>
 
-        <div class="card guide-card">
+        <div class="card guide-card guide-card-wide">
           <div class="step-number">04</div>
           <div class="step-title">Lower and shut down</div>
           <div class="step-copy">Center the machine, lower the bucket or approved attachment completely, return the controls to neutral, and shut the engine off before installing the tie-downs.</div>
@@ -783,14 +933,18 @@
               <div class="compare-head">
                 <div class="compare-status good"><span class="status-icon">✓</span> Correct</div>
               </div>
-              <div class="compare-image">PHOTO: Bucket or approved attachment fully lowered onto the trailer deck.</div>
+              <div class="compare-image has-photo"><a class="photo-link " href="images/mt100-guide/bucket-lowered-correct.jpg" data-photo aria-label="Enlarge photo: Correct bucket position: bucket resting on the trailer deck, marked with a green check.">
+              <img src="images/mt100-guide/bucket-lowered-correct.jpg" alt="Correct bucket position: bucket resting on the trailer deck, marked with a green check." width="2048" height="1152" loading="lazy" decoding="async">
+            </a><span class="photo-hint">Tap photo to enlarge</span></div>
               <div class="compare-copy">Bucket is fully lowered on the trailer floor and the machine is centered before securement begins.</div>
             </div>
             <div class="compare-card bad">
               <div class="compare-head">
                 <div class="compare-status bad"><span class="status-icon">×</span> Incorrect</div>
               </div>
-              <div class="compare-image">PHOTO: Bucket tilted up / not fully lowered.</div>
+              <div class="compare-image has-photo"><a class="photo-link " href="images/mt100-guide/bucket-raised-incorrect.jpg" data-photo aria-label="Enlarge photo: Incorrect bucket position: bucket raised above the trailer deck, marked with a red X.">
+              <img src="images/mt100-guide/bucket-raised-incorrect.jpg" alt="Incorrect bucket position: bucket raised above the trailer deck, marked with a red X." width="2048" height="1152" loading="lazy" decoding="async">
+            </a><span class="photo-hint">Tap photo to enlarge</span></div>
               <div class="compare-copy">Do not leave the bucket tilted upward or hanging above the deck before transport.</div>
             </div>
           </div>
@@ -798,9 +952,12 @@
             <strong style="display:block; color:#fff; text-transform:uppercase; letter-spacing:0.12em; font-size:13px; margin-bottom:8px;">Before moving to Step 05</strong>
             Return the trailer tilt mechanism to the transport position and make sure the tilt latch is fully locked back into place before securing the machine.
           </div>
-          <div class="photo-placeholder" style="min-height:220px;">
-            <div><strong>Reminder Photo</strong>Close-up showing the trailer tilt latch fully engaged in the locked transport position.</div>
-          </div>
+          <figure class="guide-photo latch-photo">
+            <a class="photo-link " href="images/mt100-guide/trailer-tilt-latch.jpg" data-photo aria-label="Enlarge photo: Trailer tilt latch and locking mechanism beside the fender.">
+              <img src="images/mt100-guide/trailer-tilt-latch.jpg" alt="Trailer tilt latch and locking mechanism beside the fender." width="2048" height="1152" loading="lazy" decoding="async">
+            </a>
+            <figcaption>Trailer tilt latch — verify it is fully locked before transport.<span class="photo-hint">Tap to enlarge</span></figcaption>
+          </figure>
         </div>
       </div>
     </div>
@@ -813,7 +970,7 @@
         <div>
           <div class="eyebrow">Securement</div>
           <h2 class="section-title">Secure the machine</h2>
-          <div class="section-copy">Each corner uses its own independent chain and binder. The close-up photos below should show exactly where each chain connects on the MT100 and exactly which trailer pocket or anchor it uses.</div>
+          <div class="section-copy">Each corner uses its own independent chain and binder. Compare each connection with the close-up photos below, from the designated MT100 tie-down point to the trailer anchor.</div>
         </div>
       </div>
 
@@ -822,26 +979,48 @@
         <span>No shared front chain. No shared rear chain. Each corner is secured independently.</span>
       </div>
 
+      <div class="section-copy orientation-note">Left and right are viewed from the operator’s position, facing the bucket. The machine’s front is the bucket end.</div>
+
       <div class="four-point-wrap">
         <div class="point-card">
           <div class="point-label">Chain 1</div>
           <div class="point-title">Front Left</div>
-          <div class="photo-placeholder"><div><strong>Close-Up Photo</strong>MT100 front-left designated tie-down point to the correct trailer anchor.</div></div>
+          <figure class="guide-photo ">
+            <a class="photo-link " href="images/mt100-guide/mt100-front-left-tiedown.jpg" data-photo aria-label="Enlarge photo: MT100 front-left tie-down showing the machine connection, chain, binder and trailer pocket.">
+              <img src="images/mt100-guide/mt100-front-left-tiedown.jpg" alt="MT100 front-left tie-down showing the machine connection, chain, binder and trailer pocket." width="1152" height="2048" loading="lazy" decoding="async">
+            </a>
+            <figcaption>Front-left chain and binder.<span class="photo-hint">Tap to enlarge</span></figcaption>
+          </figure>
         </div>
         <div class="point-card">
           <div class="point-label">Chain 2</div>
           <div class="point-title">Front Right</div>
-          <div class="photo-placeholder"><div><strong>Close-Up Photo</strong>MT100 front-right designated tie-down point to the correct trailer anchor.</div></div>
+          <figure class="guide-photo ">
+            <a class="photo-link " href="images/mt100-guide/mt100-front-right-tiedown.jpg" data-photo aria-label="Enlarge photo: MT100 front-right tie-down showing the machine connection, chain, binder and trailer pocket.">
+              <img src="images/mt100-guide/mt100-front-right-tiedown.jpg" alt="MT100 front-right tie-down showing the machine connection, chain, binder and trailer pocket." width="1152" height="2048" loading="lazy" decoding="async">
+            </a>
+            <figcaption>Front-right chain and binder.<span class="photo-hint">Tap to enlarge</span></figcaption>
+          </figure>
         </div>
         <div class="point-card">
           <div class="point-label">Chain 3</div>
           <div class="point-title">Rear Left</div>
-          <div class="photo-placeholder"><div><strong>Close-Up Photo</strong>MT100 rear-left designated tie-down point to the correct trailer anchor.</div></div>
+          <figure class="guide-photo ">
+            <a class="photo-link " href="images/mt100-guide/mt100-rear-left-tiedown.jpg" data-photo aria-label="Enlarge photo: MT100 rear-left tie-down showing the machine connection, chain, binder and trailer pocket.">
+              <img src="images/mt100-guide/mt100-rear-left-tiedown.jpg" alt="MT100 rear-left tie-down showing the machine connection, chain, binder and trailer pocket." width="1152" height="2048" loading="lazy" decoding="async">
+            </a>
+            <figcaption>Rear-left chain and binder.<span class="photo-hint">Tap to enlarge</span></figcaption>
+          </figure>
         </div>
         <div class="point-card">
           <div class="point-label">Chain 4</div>
           <div class="point-title">Rear Right</div>
-          <div class="photo-placeholder"><div><strong>Close-Up Photo</strong>MT100 rear-right designated tie-down point to the correct trailer anchor.</div></div>
+          <figure class="guide-photo ">
+            <a class="photo-link " href="images/mt100-guide/mt100-rear-right-tiedown.jpg" data-photo aria-label="Enlarge photo: MT100 rear-right tie-down showing the machine connection, chain, binder and trailer pocket.">
+              <img src="images/mt100-guide/mt100-rear-right-tiedown.jpg" alt="MT100 rear-right tie-down showing the machine connection, chain, binder and trailer pocket." width="1152" height="2048" loading="lazy" decoding="async">
+            </a>
+            <figcaption>Rear-right chain and binder.<span class="photo-hint">Tap to enlarge</span></figcaption>
+          </figure>
         </div>
       </div>
 
@@ -850,17 +1029,47 @@
           <div class="compare-head">
             <div class="compare-status good"><span class="status-icon">✓</span> Correct Chain Pocket Connection</div>
           </div>
-          <div class="compare-image">PHOTO: Hook fully seated in the approved trailer chain pocket / anchor.</div>
+          <div class="compare-image has-photo"><a class="photo-link " href="images/mt100-guide/chain-pocket-correct.jpg" data-photo aria-label="Enlarge photo: Correct chain-pocket example: the chain connection is circled in green and marked with a check.">
+              <img src="images/mt100-guide/chain-pocket-correct.jpg" alt="Correct chain-pocket example: the chain connection is circled in green and marked with a check." width="1152" height="2048" loading="lazy" decoding="async">
+            </a><span class="photo-hint">Tap photo to enlarge</span></div>
           <div class="compare-copy">Hook is fully engaged in the intended securement point and aligned so it cannot easily roll or slip off the edge.</div>
         </div>
         <div class="compare-card bad">
           <div class="compare-head">
             <div class="compare-status bad"><span class="status-icon">×</span> Incorrect Chain Pocket Connection</div>
           </div>
-          <div class="compare-image">PHOTO: Hook caught only on the lip or edge of the pocket.</div>
+          <div class="compare-image has-photo"><a class="photo-link " href="images/mt100-guide/chain-pocket-incorrect.jpg" data-photo aria-label="Enlarge photo: Incorrect chain-pocket example: the hook on the outer rail is circled in red and marked with an X.">
+              <img src="images/mt100-guide/chain-pocket-incorrect.jpg" alt="Incorrect chain-pocket example: the hook on the outer rail is circled in red and marked with an X." width="1152" height="2048" loading="lazy" decoding="async">
+            </a><span class="photo-hint">Tap photo to enlarge</span></div>
           <div class="compare-copy">Do not catch the hook only on an edge, lip, thin section, or other location not intended to carry the tie-down load.</div>
         </div>
       </div>
+
+      <div class="binder-comparison">
+        <h3 class="mistake-title">Binder connection</h3>
+        <div class="mistake-note">Compare the connection at the trailer pocket.</div>
+        <div class="compare-grid">
+        <div class="compare-card good">
+          <div class="compare-head">
+            <div class="compare-status good"><span class="status-icon" aria-hidden="true">✓</span> Correct — chain to anchor</div>
+          </div>
+          <div class="compare-image has-photo"><a class="photo-link " href="images/mt100-guide/mt100-rear-right-tiedown.jpg" data-photo aria-label="Enlarge photo: Rear tie-down example showing chain between the binder and the trailer pocket.">
+              <img src="images/mt100-guide/mt100-rear-right-tiedown.jpg" alt="Rear tie-down example showing chain between the binder and the trailer pocket." width="1152" height="2048" loading="lazy" decoding="async">
+            </a><span class="photo-hint">Tap photo to enlarge</span></div>
+          <div class="compare-copy">Use the chain connection shown in the corner examples, with chain between the binder and the trailer anchor.</div>
+        </div>
+        <div class="compare-card bad">
+          <div class="compare-head">
+            <div class="compare-status bad"><span class="status-icon" aria-hidden="true">×</span> Incorrect — binder to pocket</div>
+          </div>
+          <div class="compare-image has-photo"><a class="photo-link " href="images/mt100-guide/binder-pocket-incorrect.jpg" data-photo aria-label="Enlarge photo: Incorrect example showing a binder hook directly in the trailer pocket, circled in red with an X.">
+              <img src="images/mt100-guide/binder-pocket-incorrect.jpg" alt="Incorrect example showing a binder hook directly in the trailer pocket, circled in red with an X." width="1152" height="2048" loading="lazy" decoding="async">
+            </a><span class="photo-hint">Tap photo to enlarge</span></div>
+          <div class="compare-copy">The circled binder-to-pocket connection is marked as incorrect. Use the chain connection shown in the corner examples.</div>
+        </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -901,25 +1110,31 @@
     <div class="container">
       <div class="eyebrow">Attachments</div>
       <h2 class="section-title">Attachment-specific transport</h2>
-      <div class="section-copy">Use multiple example photos here so renters can quickly compare the setup in front of them. Bucket and fork examples can show a few acceptable transport positions. The auger is typically transported attached to the machine, so that section should show the mounted configuration from more than one angle.</div>
+      <div class="section-copy">Compare the attachment on your rental with the relevant example below. Confirm the transport setup with Pinnacle Equipment at pickup.</div>
 
       <div class="guide-grid">
         <div class="card guide-card">
           <div class="step-title" style="margin-top:0;">Bucket / Forks</div>
-          <div class="step-copy">Show a few approved examples for the bucket and fork setup so the customer can identify the closest match.</div>
-          <div class="photo-grid-3">
-            <div class="photo-placeholder"><div><strong>Example Photo 1</strong>Bucket fully lowered on the trailer deck in the finalized transport position.</div></div>
-            <div class="photo-placeholder"><div><strong>Example Photo 2</strong>Fork setup example showing the approved fork transport position and orientation.</div></div>
-            <div class="photo-placeholder"><div><strong>Example Photo 3</strong>Alternate approved bucket / fork securement example if applicable.</div></div>
-          </div>
+          <div class="step-copy">Lower the bucket completely onto the trailer deck before securement.</div>
+          <figure class="guide-photo ">
+            <a class="photo-link " href="images/mt100-guide/bucket-lowered-correct.jpg" data-photo aria-label="Enlarge photo: Bucket resting on the trailer deck, marked with a green check.">
+              <img src="images/mt100-guide/bucket-lowered-correct.jpg" alt="Bucket resting on the trailer deck, marked with a green check." width="2048" height="1152" loading="lazy" decoding="async">
+            </a>
+            <figcaption>Bucket lowered onto the trailer deck.<span class="photo-hint">Tap to enlarge</span></figcaption>
+          </figure>
+          <!-- Add the fork transport photographs here when available. -->
+          <div class="notice attachment-note"><strong>Using forks?</strong> Confirm the fork transport position and securement with Pinnacle Equipment at pickup.</div>
         </div>
         <div class="card guide-card">
           <div class="step-title" style="margin-top:0;">Auger</div>
-          <div class="step-copy">The auger will typically be secured to the machine during transport. Show two views of the mounted auger setup so the customer can confirm the bit position and securement method.</div>
-          <div class="photo-grid-2">
-            <div class="photo-placeholder"><div><strong>Example Photo 1</strong>Primary view of the auger mounted to the machine in the approved transport position.</div></div>
-            <div class="photo-placeholder"><div><strong>Example Photo 2</strong>Secondary angle showing the auger securement details and transport orientation.</div></div>
-          </div>
+          <div class="step-copy">The auger is typically transported attached to the machine. Compare the bit position and securement with the setup shown below.</div>
+          <figure class="guide-photo ">
+            <a class="photo-link " href="images/mt100-guide/auger-transport.jpg" data-photo aria-label="Enlarge photo: Auger mounted to the MT100, with the bit lowered toward the deck and a strap across it.">
+              <img src="images/mt100-guide/auger-transport.jpg" alt="Auger mounted to the MT100, with the bit lowered toward the deck and a strap across it." width="2048" height="1152" loading="lazy" decoding="async">
+            </a>
+            <figcaption>Mounted auger — bit position and strap shown.<span class="photo-hint">Tap to enlarge</span></figcaption>
+          </figure>
+          <!-- An additional auger view can be added here. -->
         </div>
       </div>
     </div>
@@ -942,5 +1157,48 @@
       </div>
     </div>
   </section>
+
+  <dialog id="photo-viewer" class="photo-viewer" aria-labelledby="viewer-title">
+    <div class="viewer-top">
+      <h2 id="viewer-title">Photo detail</h2>
+      <form method="dialog"><button class="viewer-close" type="submit" autofocus>Close</button></form>
+    </div>
+    <img id="viewer-photo" class="viewer-photo" alt="">
+    <p id="viewer-caption" class="viewer-caption"></p>
+  </dialog>
+  <script>
+    (() => {
+      const viewer = document.getElementById('photo-viewer');
+      if (!viewer || typeof viewer.showModal !== 'function') return;
+      const largePhoto = document.getElementById('viewer-photo');
+      const caption = document.getElementById('viewer-caption');
+      let openingLink = null;
+
+      document.querySelectorAll('a[data-photo]').forEach(link => {
+        link.addEventListener('click', event => {
+          if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+          event.preventDefault();
+          const photo = link.querySelector('img');
+          largePhoto.src = link.href;
+          largePhoto.alt = photo.alt;
+          caption.textContent = photo.alt;
+          openingLink = link;
+          viewer.showModal();
+          document.body.classList.add('photo-viewer-open');
+        });
+      });
+
+      viewer.addEventListener('click', event => {
+        if (event.target !== viewer) return;
+        const rect = viewer.getBoundingClientRect();
+        if (event.clientX < rect.left || event.clientX > rect.right ||
+            event.clientY < rect.top || event.clientY > rect.bottom) viewer.close();
+      });
+      viewer.addEventListener('close', () => {
+        document.body.classList.remove('photo-viewer-open');
+        if (openingLink) openingLink.focus({ preventScroll: true });
+      });
+    })();
+  </script>
 </body>
 </html>
