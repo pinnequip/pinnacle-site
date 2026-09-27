@@ -120,17 +120,22 @@
     }
 
     .brand-mark {
-      width: 62px;
+      position: relative;
+      width: 78px;
       height: 62px;
-      border-radius: 18px;
-      border: 1px solid rgba(111,138,58,0.35);
-      background: rgba(111,138,58,0.08);
-      display: grid;
-      place-items: center;
-      color: var(--green);
-      font-weight: 900;
-      letter-spacing: -0.04em;
       flex: 0 0 auto;
+      overflow: hidden;
+    }
+
+    /* Frame the symbol inside the PNG's transparent margins. */
+    .brand-mark img {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 158px;
+      max-width: none;
+      height: auto;
+      transform: translate(-50%, -41.6%);
     }
 
     .brand-text-top {
@@ -656,7 +661,8 @@
       .guide-card,
       .contact-card,
       .ten-second { padding: 24px; }
-      .brand-mark { width: 50px; height: 50px; border-radius: 15px; }
+      .brand-mark { width: 60px; height: 50px; }
+      .brand-mark img { width: 122px; }
       .brand-text-top { font-size: 20px; }
       .brand-text-bottom { font-size: 10px; }
       .four-point-wrap,
@@ -806,7 +812,9 @@
     <div class="nav">
       <div class="container nav-inner">
         <a href="index.html" class="brand">
-          <div class="brand-mark">PE</div>
+          <div class="brand-mark" aria-hidden="true">
+            <img src="images/pinnacle-symbol.png" alt="" width="2048" height="1365" decoding="async">
+          </div>
           <div>
             <div class="brand-text-top">PINNACLE</div>
             <div class="brand-text-bottom">EQUIPMENT</div>
