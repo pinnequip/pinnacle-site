@@ -752,6 +752,81 @@
       .site-menu summary { gap: 6px; padding: 10px; }
     }
   </style>
+<style id="pinnacle-brand-lockup-standard">
+  /* Match the Rental Estimate page header exactly */
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    min-width: 0;
+  }
+
+  .brand-symbol,
+  .brand-mark {
+    display: block;
+    position: relative;
+    width: 92px;
+    height: 72px;
+    flex: 0 0 auto;
+    overflow: hidden;
+  }
+
+  .brand-symbol img,
+  .brand-mark img {
+    position: absolute;
+    width: 186px;
+    max-width: none;
+    height: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -41.6%);
+  }
+
+  .brand-text-top {
+    font-size: 26px;
+    letter-spacing: 0.24em;
+  }
+
+  .brand-text-bottom {
+    font-size: 11px;
+    letter-spacing: 0.38em;
+  }
+
+  @media (max-width: 760px) {
+    .brand {
+      gap: 0;
+    }
+
+    .brand-symbol,
+    .brand-mark {
+      width: 60px;
+      height: 50px;
+    }
+
+    .brand-symbol img,
+    .brand-mark img {
+      width: 122px;
+      height: auto;
+    }
+
+    .brand-text-top {
+      font-size: 20px;
+      letter-spacing: 0.16em;
+    }
+
+    .brand-text-bottom {
+      font-size: 10px;
+      letter-spacing: 0.26em;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .brand-text-top {
+      font-size: 18px;
+    }
+  }
+</style>
 </head>
 <body>
   <section class="hero">
