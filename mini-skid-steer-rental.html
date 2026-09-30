@@ -69,12 +69,15 @@
   min-width: 0;
 }
 
-.brand img {
-  width: 120px;
-  height: 120px;
-  object-fit: contain;
-  flex: 0 0 auto;
-}
+.brand-symbol img {
+      position: absolute;
+      width: 186px;
+      max-width: none;
+      height: auto;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -41.6%);
+    }
 
 .brand-text-top {
   color: var(--green);
@@ -449,7 +452,14 @@
       flex: 0 0 auto;
       gap: 16px;
     }
-    .pinnacle-nav .brand-symbol { display: block; flex: 0 0 auto; }
+    .pinnacle-nav .brand-symbol {
+      display: block;
+      position: relative;
+      width: 92px;
+      height: 72px;
+      flex: 0 0 auto;
+      overflow: hidden;
+    }
     .pinnacle-nav .phone-pill { display: inline-block; white-space: nowrap; }
     .pinnacle-nav a:focus-visible,
     .pinnacle-nav summary:focus-visible,
@@ -591,6 +601,103 @@
       .site-menu summary { gap: 6px; padding: 10px; }
     }
   </style>
+
+  <style id="pinnacle-brand-lockup-standard">
+    /* Shared Pinnacle header lockup — matches the rental estimator page. */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      min-width: 0;
+    }
+
+    .brand-symbol,
+    .brand-mark {
+      display: block;
+      position: relative;
+      width: 92px;
+      height: 72px;
+      flex: 0 0 auto;
+      overflow: hidden;
+    }
+
+    .brand-symbol img,
+    .brand-mark img {
+      position: absolute;
+      width: 186px;
+      max-width: none;
+      height: auto;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -41.6%);
+    }
+
+    .brand-text-top {
+      font-size: 26px;
+      letter-spacing: 0.24em;
+    }
+
+    .brand-text-bottom {
+      font-size: 11px;
+      letter-spacing: 0.38em;
+    }
+
+    @media (max-width: 1100px) {
+      .brand { gap: 0; }
+
+      .brand-symbol,
+      .brand-mark {
+        width: 92px;
+        height: 72px;
+      }
+
+      .brand-symbol img,
+      .brand-mark img {
+        width: 186px;
+      }
+
+      .brand-text-top {
+        font-size: 26px;
+        letter-spacing: 0.24em;
+      }
+
+      .brand-text-bottom {
+        font-size: 11px;
+        letter-spacing: 0.38em;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .brand { gap: 0; }
+
+      .brand-symbol,
+      .brand-mark {
+        width: 60px;
+        height: 50px;
+      }
+
+      .brand-symbol img,
+      .brand-mark img {
+        width: 122px;
+        height: auto;
+      }
+
+      .brand-text-top {
+        font-size: 20px;
+        letter-spacing: 0.16em;
+      }
+
+      .brand-text-bottom {
+        font-size: 10px;
+        letter-spacing: 0.26em;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .brand-text-top { font-size: 18px; }
+    }
+  </style>
+
 </head>
 <body>
   <header class="pinnacle-nav">
