@@ -1,1 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Build a Rental Estimate | Pinnacle Equipment</title>
+  <meta name="description" content="Build a quick estimate for a Bobcat MT100 mini skid steer rental from Pinnacle Equipment in Austintown, Ohio. Choose rental length, attachments, trailer, pickup or delivery, and damage waiver." />
+  <link rel="canonical" href="https://pinnacleequipmentohio.com/rental-estimate" />
+
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <meta property="og:title" content="Build a Rental Estimate | Pinnacle Equipment" />
+  <meta property="og:description" content="Choose your MT100 rental length, attachments, trailer, and pickup or delivery to build a quick standard-rate estimate." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pinnacleequipmentohio.com/rental-estimate" />
+  <meta property="og:image" content="https://pinnacleequipmentohio.com/images/auger-hero.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Build a Rental Estimate | Pinnacle Equipment" />
+  <meta name="twitter:description" content="Choose your Bobcat MT100 rental length, attachments, trailer, and pickup or delivery to build a quick standard-rate estimate." />
+  <meta name="twitter:image" content="https://pinnacleequipmentohio.com/images/auger-hero.jpg" />
+
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --panel: rgba(255,255,255,0.04);
+      --panel-2: rgba(255,255,255,0.03);
+      --border: rgba(255,255,255,0.10);
+      --text: #ffffff;
+      --muted: #c7c7c7;
+      --muted-2: #9ca3af;
+      --green: #6F8A3A;
+      --silver: #C2C2C2;
+      --green-soft: rgba(111,138,58,0.12);
+      --green-line: rgba(111,138,58,0.48);
+      --danger: #d79b97;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(111,138,58,0.16), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    button { color: inherit; }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid var(--silver);
+      outline-offset: 3px;
+    }
+
+    .container {
+      width: min(1200px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    /* Site navigation */
+    .nav {
+      position: relative;
+      z-index: 30;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,10,10,0.88);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .brand-symbol {
+      display: block;
+      position: relative;
+      width: 92px;
+      height: 72px;
+      flex: 0 0 auto;
+      overflow: hidden;
+    }
+
+    .brand-symbol img {
+      position: absolute;
+      width: 186px;
+      max-width: none;
+      height: auto;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -41.6%);
+    }
+
+    .brand-text-top {
+      color: var(--green);
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: 0.24em;
+      line-height: 1;
+    }
+
+    .brand-text-bottom {
+      color: #d4d4d8;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.38em;
+      margin-top: 3px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex: 0 0 auto;
+    }
+
+    .phone-pill {
+      white-space: nowrap;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.05);
+      color: #e4e4e7;
+      font-size: 14px;
+    }
+
+    .site-menu {
+      display: block;
+      position: relative;
+      line-height: 1.3;
+    }
+
+    .site-menu summary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 10px 12px;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 12px;
+      background: rgba(10,10,10,0.85);
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      list-style: none;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .site-menu summary::-webkit-details-marker { display: none; }
+    .site-menu summary::marker { content: ""; }
+    .site-menu[open] summary { border-color: var(--green); }
+    .menu-icon { width: 18px; height: 18px; flex: 0 0 auto; }
+
+    .site-menu-panel {
+      position: absolute;
+      top: calc(100% + 12px);
+      right: 0;
+      width: min(320px, calc(100vw - 28px));
+      max-height: calc(100dvh - 130px);
+      overflow-y: auto;
+      padding: 10px;
+      border: 1px solid rgba(111,138,58,0.55);
+      border-radius: 18px;
+      background: #151713;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.55);
+    }
+
+    .site-menu-links { display: grid; gap: 2px; }
+
+    .site-menu-links a {
+      display: block;
+      padding: 14px 16px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .site-menu-links a:hover,
+    .site-menu-links a:focus-visible {
+      background: rgba(111,138,58,0.12);
+    }
+
+    .site-menu-links a[aria-current="page"] {
+      color: #d2e3b1;
+      background: rgba(111,138,58,0.16);
+    }
+
+    .site-menu-contact {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .site-menu-contact a {
+      flex: 1;
+      padding: 13px 8px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.08);
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    /* Intro */
+    .intro {
+      padding: 72px 0 34px;
+    }
+
+    .eyebrow {
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .intro h1 {
+      margin: 0;
+      max-width: 850px;
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 0.98;
+      text-transform: uppercase;
+      letter-spacing: -0.035em;
+    }
+
+    .intro-copy {
+      max-width: 800px;
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    .back-link {
+      display: inline-flex;
+      margin-top: 22px;
+      color: #d2e3b1;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .contractor-banner {
+      margin-top: 30px;
+      border: 1px solid var(--green-line);
+      background: var(--green-soft);
+      border-radius: 22px;
+      padding: 20px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .contractor-banner strong {
+      display: block;
+      font-size: 19px;
+      margin-bottom: 4px;
+    }
+
+    .contractor-banner p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    /* Estimator */
+    .estimator-section {
+      padding: 20px 0 82px;
+    }
+
+    .estimator-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(320px, .8fr);
+      align-items: start;
+      gap: 24px;
+    }
+
+    .panel {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: 28px;
+    }
+
+    .form-panel { padding: 28px; }
+    .summary-panel {
+      padding: 24px;
+      position: sticky;
+      top: 20px;
+    }
+
+    .estimator-step + .estimator-step {
+      margin-top: 34px;
+      padding-top: 34px;
+      border-top: 1px solid var(--border);
+    }
+
+    .step-head {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 13px;
+      align-items: start;
+      margin-bottom: 16px;
+    }
+
+    .step-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: var(--green);
+      color: white;
+      font-weight: 900;
+    }
+
+    .step-head h2 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.15;
+    }
+
+    .step-head p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .choice-grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .choice-card,
+    .check-card {
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.16);
+      border-radius: 18px;
+      padding: 17px;
+      cursor: pointer;
+      transition: border-color .15s ease, background .15s ease, opacity .15s ease;
+    }
+
+    .choice-card {
+      position: relative;
+    }
+
+    .choice-card input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .choice-card.selected,
+    .check-card.active {
+      border-color: var(--green);
+      background: rgba(111,138,58,0.10);
+    }
+
+    .choice-title {
+      font-weight: 800;
+    }
+
+    .choice-sub {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .choice-price {
+      margin-top: 10px;
+      font-weight: 900;
+      font-size: 18px;
+    }
+
+    .best-value {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      padding: 5px 8px;
+      border-radius: 999px;
+      color: #d2e3b1;
+      background: rgba(111,138,58,0.16);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: 9px;
+      font-weight: 900;
+    }
+
+    .field-wrap {
+      margin-top: 14px;
+      max-width: 560px;
+    }
+
+    .field-label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    select,
+    input[type="text"],
+    input[type="tel"],
+    input[type="date"],
+    textarea {
+      width: 100%;
+      min-height: 46px;
+      padding: 12px 13px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #11130f;
+      color: white;
+    }
+
+    textarea { min-height: 100px; resize: vertical; }
+    option { background: #11130f; color: white; }
+
+    .field-note {
+      margin-top: 7px;
+      color: var(--muted-2);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .check-card {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .check-card input {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--green);
+      flex: 0 0 auto;
+    }
+
+    .included-card {
+      cursor: default;
+    }
+
+    .disabled {
+      opacity: .46;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .info-callout {
+      margin-top: 14px;
+      padding: 16px 18px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.025);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .info-callout strong {
+      display: block;
+      margin-bottom: 4px;
+      color: white;
+    }
+
+    .green-callout {
+      border-color: var(--green-line);
+      background: var(--green-soft);
+    }
+
+    .hidden { display: none !important; }
+
+    /* Summary */
+    .summary-kicker {
+      color: var(--muted-2);
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .summary-total-big {
+      margin-top: 6px;
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .summary-help {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .summary-box {
+      margin-top: 20px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 17px;
+      background: rgba(0,0,0,0.18);
+    }
+
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 14px;
+      font-size: 14px;
+    }
+
+    .summary-line:last-child { margin-bottom: 0; }
+
+    .summary-line small {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted-2);
+      font-size: 11px;
+    }
+
+    .summary-line.discount {
+      color: #d2e3b1;
+      font-weight: 800;
+    }
+
+    .summary-divider {
+      border-top: 1px solid var(--border);
+      margin: 16px 0;
+    }
+
+    .summary-final {
+      font-weight: 900;
+      font-size: 16px;
+    }
+
+    .summary-final span:last-child {
+      font-size: 20px;
+    }
+
+    /* Request form */
+    .request-fields {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .form-field.full { grid-column: 1 / -1; }
+
+    .request-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 13px 17px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: white;
+    }
+
+    .btn-secondary {
+      border-color: rgba(194,194,194,.32);
+      background: rgba(255,255,255,.04);
+      color: white;
+    }
+
+    .btn-small {
+      min-height: 44px;
+      padding: 11px 14px;
+      white-space: nowrap;
+    }
+
+    .status-message {
+      min-height: 22px;
+      margin-top: 12px;
+      color: #d2e3b1;
+      font-size: 13px;
+    }
+
+    footer {
+      padding: 34px 0 46px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+    }
+
+    @media (max-width: 1000px) {
+      .phone-pill { display: none; }
+      .estimator-grid { grid-template-columns: 1fr; }
+      .summary-panel { position: static; }
+    }
+
+    @media (max-width: 760px) {
+      .container { width: min(100% - 28px, 1200px); }
+      .nav { padding: 18px 0; }
+      .nav-inner { gap: 10px; }
+      .brand-symbol { width: 60px; height: 50px; }
+      .brand-symbol img { width: 122px; }
+      .brand-text-top { font-size: 20px; letter-spacing: .16em; }
+      .brand-text-bottom { font-size: 10px; letter-spacing: .26em; }
+      .intro { padding-top: 54px; }
+      .intro h1 { font-size: 43px; }
+      .intro-copy { font-size: 16px; }
+      .contractor-banner { align-items: stretch; flex-direction: column; }
+      .form-panel, .summary-panel { padding: 20px; }
+      .choice-grid,
+      .choice-grid.three,
+      .request-fields { grid-template-columns: 1fr; }
+      .form-field.full { grid-column: auto; }
+      .request-actions .btn { width: 100%; }
+    }
+
+    @media (max-width: 360px) {
+      .brand-text-top { font-size: 18px; }
+      .site-menu summary { gap: 6px; padding: 10px; }
+      .intro h1 { font-size: 37px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Build a Rental Estimate | Pinnacle Equipment",
+    "url": "https://pinnacleequipmentohio.com/rental-estimate",
+    "description": "Build a quick standard-rate estimate for a Bobcat MT100 mini skid steer rental from Pinnacle Equipment in Austintown, Ohio."
+  }
+  </script>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="/" class="brand" aria-label="Pinnacle Equipment home">
+        <span class="brand-symbol">
+          <img src="/images/pinnacle-symbol copy.png" alt="">
+        </span>
+        <div>
+          <div class="brand-text-top">PINNACLE</div>
+          <div class="brand-text-bottom">EQUIPMENT</div>
+        </div>
+      </a>
+
+      <div class="nav-right">
+        <a href="tel:3302729911" class="phone-pill">330-272-9911</a>
+
+        <details class="site-menu" id="site-menu">
+          <summary aria-label="Navigation menu">
+            <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            Menu
+          </summary>
+
+          <div class="site-menu-panel">
+            <nav class="site-menu-links" aria-label="Primary">
+              <a href="/">Home</a>
+              <a href="/mini-skid-steer-rental">Rentals</a>
+              <a href="/rental-estimate" aria-current="page">Rental Estimate</a>
+              <a href="/contractor-account">Contractors</a>
+              <a href="/equipment-guides">Equipment Guides</a>
+              <a href="/#about">About</a>
+              <a href="/#contact">Contact</a>
+            </nav>
+
+            <div class="site-menu-contact">
+              <a href="tel:3302729911">Call Us</a>
+              <a href="sms:3302729911">Text Us</a>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div class="container">
+        <div class="eyebrow">Quick Rental Estimate</div>
+        <h1>Build your MT100 rental.</h1>
+        <div class="intro-copy">
+          Choose your rental length, attachment, pickup or delivery, trailer, and optional damage waiver.
+          This tool uses Pinnacle Equipment's standard public rates. Availability, delivery, applicable sales tax,
+          and final rental details are confirmed before booking.
+        </div>
+        <a class="back-link" href="/mini-skid-steer-rental">← Back to MT100 rental details</a>
+
+        <div class="contractor-banner">
+          <div>
+            <strong>Are you a contractor?</strong>
+            <p>This estimator shows standard public pricing. Contractor accounts may qualify for different pricing and monthly billing options.</p>
+          </div>
+          <a class="btn btn-secondary btn-small" href="/contractor-account">Contractor Account Details</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="estimator-section">
+      <div class="container estimator-grid">
+
+        <form class="panel form-panel" id="estimator-form" novalidate>
+
+          <div class="estimator-step">
+            <div class="step-head">
+              <div class="step-number">1</div>
+              <div>
+                <h2>How long do you need it?</h2>
+                <p>Choose a standard rental or a weekend package.</p>
+              </div>
+            </div>
+
+            <div class="choice-grid">
+              <label class="choice-card selected" id="standard-card">
+                <input type="radio" name="rental-mode" value="standard" checked>
+                <div class="choice-title">Standard Rental</div>
+                <div class="choice-sub">Choose 1–7 days</div>
+              </label>
+
+              <label class="choice-card" id="weekend-card">
+                <input type="radio" name="rental-mode" value="weekend">
+                <div class="choice-title">Weekend Rental</div>
+                <div class="choice-sub">Choose 8 or 16 machine hours</div>
+              </label>
+            </div>
+
+            <div class="field-wrap" id="standard-options">
+              <label class="field-label" for="days">Number of days</label>
+              <select id="days">
+                <option value="1">1 day — $225 · up to 8 machine hours</option>
+                <option value="2">2 days — $450 · up to 16 machine hours</option>
+                <option value="3">3 days — $525 · up to 24 machine hours</option>
+                <option value="4">4 days — $700 · up to 32 machine hours</option>
+                <option value="5">5 days — $795 · weekly rate applied</option>
+                <option value="6">6 days — $795 · weekly rate applied</option>
+                <option value="7">7 days — $795 / week</option>
+              </select>
+              <div class="field-note">
+                Best available machine rate is applied automatically. Weekly rentals include up to 7 consecutive days and 40 machine hours.
+              </div>
+            </div>
+
+            <div class="choice-grid hidden" id="weekend-options" style="margin-top:14px;">
+              <label class="choice-card selected" id="weekend-8-card">
+                <input type="radio" name="weekend-hours" value="8" checked>
+                <div class="choice-title">8 Machine Hours</div>
+                <div class="choice-sub">Keep it for the weekend</div>
+                <div class="choice-price">$225</div>
+              </label>
+
+              <label class="choice-card" id="weekend-16-card">
+                <input type="radio" name="weekend-hours" value="16">
+                <div class="best-value">Best Value</div>
+                <div class="choice-title">16 Machine Hours</div>
+                <div class="choice-sub">Double the runtime</div>
+                <div class="choice-price">$299</div>
+                <div class="field-note">+8 machine hours for $74</div>
+              </label>
+            </div>
+
+            <div class="info-callout">
+              <strong>Only need it for a few hours?</strong>
+              Half-day rentals may be available depending on scheduling. Contact us for availability and pricing.
+            </div>
+          </div>
+
+          <div class="estimator-step">
+            <div class="step-head">
+              <div class="step-number">2</div>
+              <div>
+                <h2>Need an attachment?</h2>
+                <p>The standard bucket is included.</p>
+              </div>
+            </div>
+
+            <div class="choice-grid three">
+              <div class="choice-card included-card">
+                <div class="choice-title">Bucket</div>
+                <div class="choice-sub">Standard attachment</div>
+                <div class="choice-price">Included</div>
+              </div>
+
+              <label class="check-card" id="forks-card">
+                <div>
+                  <div class="choice-title">Pallet Forks</div>
+                  <div class="choice-sub" id="forks-label">$45/day</div>
+                </div>
+                <input type="checkbox" id="forks">
+              </label>
+
+              <label class="check-card" id="auger-card">
+                <div>
+                  <div class="choice-title">Auger</div>
+                  <div class="choice-sub" id="auger-label">$75/day</div>
+                </div>
+                <input type="checkbox" id="auger">
+              </label>
+            </div>
+
+            <div class="field-wrap hidden" id="auger-bit-wrap">
+              <label class="field-label" for="auger-bit">Auger bit</label>
+              <select id="auger-bit">
+                <option value="8">8-inch bit</option>
+                <option value="12">12-inch bit</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="estimator-step">
+            <div class="step-head">
+              <div class="step-number">3</div>
+              <div>
+                <h2>Pickup or delivery?</h2>
+                <p>Delivery is quoted from the job location so we can price it accurately.</p>
+              </div>
+            </div>
+
+            <select id="transport">
+              <option value="pickup">I'll pick it up — Included</option>
+              <option value="delivery">I'd like delivery — Quote based on job location</option>
+            </select>
+
+            <div class="field-note hidden" id="delivery-note">
+              Enter the job city or ZIP in the request section below. Pinnacle will confirm the delivery charge before the reservation is finalized.
+            </div>
+          </div>
+
+          <div class="estimator-step">
+            <div class="step-head">
+              <div class="step-number">4</div>
+              <div>
+                <h2>Need our trailer?</h2>
+                <p id="trailer-help">Add our equipment trailer if you're picking the machine up yourself.</p>
+              </div>
+            </div>
+
+            <label class="check-card" id="trailer-card">
+              <div>
+                <div class="choice-title">Add Equipment Trailer</div>
+                <div class="choice-sub" id="trailer-label">$75/day</div>
+              </div>
+              <input type="checkbox" id="trailer">
+            </label>
+          </div>
+
+          <div class="estimator-step">
+            <div class="step-head">
+              <div class="step-number">5</div>
+              <div>
+                <h2>Damage Waiver</h2>
+                <p>Optional damage waiver with a $1,500 deductible.</p>
+              </div>
+            </div>
+
+            <label class="check-card" id="waiver-card">
+              <div>
+                <div class="choice-title">Add Damage Waiver</div>
+                <div class="choice-sub">$35</div>
+              </div>
+              <input type="checkbox" id="waiver">
+            </label>
+          </div>
+
+          <div class="estimator-step" id="request-section">
+            <div class="step-head">
+              <div class="step-number">6</div>
+              <div>
+                <h2>Request this rental</h2>
+                <p>Send the setup to Pinnacle and we'll confirm availability and final pricing.</p>
+              </div>
+            </div>
+
+            <label class="check-card" id="contractor-card">
+              <div>
+                <div class="choice-title">I'm a contractor</div>
+                <div class="choice-sub">We'll follow up about contractor-account pricing instead of treating this standard-rate estimate as your contractor quote.</div>
+              </div>
+              <input type="checkbox" id="contractor">
+            </label>
+
+            <div class="info-callout green-callout hidden" id="contractor-note">
+              <strong>Contractor pricing is handled separately.</strong>
+              The estimate remains visible as a standard public-rate reference. Pinnacle will confirm your applicable contractor pricing.
+            </div>
+
+            <div class="request-fields">
+              <div class="form-field">
+                <label class="field-label" for="customer-name">Name</label>
+                <input id="customer-name" type="text" autocomplete="name" placeholder="Your name">
+              </div>
+
+              <div class="form-field">
+                <label class="field-label" for="customer-phone">Phone</label>
+                <input id="customer-phone" type="tel" autocomplete="tel" placeholder="330-555-0123">
+              </div>
+
+              <div class="form-field">
+                <label class="field-label" for="requested-date">Requested start date</label>
+                <input id="requested-date" type="date">
+              </div>
+
+              <div class="form-field">
+                <label class="field-label" for="job-location">Job city / ZIP</label>
+                <input id="job-location" type="text" autocomplete="postal-code" placeholder="Austintown, OH 44515">
+              </div>
+
+              <div class="form-field full">
+                <label class="field-label" for="project-notes">What are you working on? <span style="color:var(--muted-2);font-weight:500;">Optional</span></label>
+                <textarea id="project-notes" placeholder="Moving gravel, drilling fence posts, cleanup..."></textarea>
+              </div>
+            </div>
+
+            <div class="request-actions">
+              <button type="submit" class="btn btn-primary">Request This Rental</button>
+              <button type="button" class="btn btn-secondary" id="email-request">Send by Email</button>
+              <button type="button" class="btn btn-secondary" id="copy-request">Copy Request</button>
+              <a class="btn btn-secondary" href="tel:3302729911">Call 330-272-9911</a>
+            </div>
+
+            <div class="field-note">
+              “Request This Rental” opens a prefilled text message. “Send by Email” opens a prefilled email to pinn.equipment@gmail.com. Nothing is sent until you review it and press send.
+            </div>
+
+            <div class="status-message" id="status-message" aria-live="polite"></div>
+          </div>
+        </form>
+
+        <aside class="panel summary-panel" aria-label="Rental estimate summary">
+          <div class="summary-kicker" id="estimate-heading">Your estimate</div>
+          <div class="summary-total-big" id="estimate-total">$225.00</div>
+          <div class="summary-help" id="estimate-help">
+            Standard public-rate estimate. Applicable sales tax is added when the reservation is confirmed.
+          </div>
+
+          <div class="info-callout green-callout hidden" id="contractor-summary">
+            <strong>Contractor pricing requested</strong>
+            The displayed subtotal uses public pricing. Pinnacle will confirm your applicable contractor rate.
+          </div>
+
+          <div class="summary-box">
+            <div id="summary-lines"></div>
+
+            <div class="summary-line">
+              <span>Sales Tax</span>
+              <span style="color:var(--muted-2);text-align:right;">Added at confirmation</span>
+            </div>
+
+            <div class="summary-divider"></div>
+
+            <div class="summary-line summary-final">
+              <span id="subtotal-label">Estimated Subtotal</span>
+              <span id="summary-total">$225.00</span>
+            </div>
+          </div>
+
+          <div class="info-callout hidden" id="delivery-summary">
+            <strong>Delivery will be quoted separately.</strong>
+            The amount above is the equipment subtotal. We'll confirm the delivery charge from the job location before finalizing the reservation.
+          </div>
+
+          <div class="info-callout hidden" id="weekly-summary">
+            <strong>Weekly rate applied automatically.</strong>
+            Up to 7 consecutive days / 40 machine hours.
+          </div>
+
+          <div class="info-callout green-callout hidden" id="bundle-summary">
+            <strong id="bundle-summary-title">Bundle savings applied.</strong>
+            <span id="bundle-summary-copy">Machine + trailer + paid attachment.</span>
+          </div>
+
+          <div class="info-callout">
+            <strong>Rather talk it through?</strong>
+            Call or text Pinnacle. The estimator is simply another way to get a quick number.
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <strong>Pinnacle Equipment</strong><br>
+      Compact equipment rentals based in Austintown, Ohio. Pickup and local delivery available based on scheduling and availability.<br>
+      <a href="/mini-skid-steer-rental" style="color:#d2e3b1;">View MT100 rental details</a>
+      &nbsp;·&nbsp;
+      <a href="tel:3302729911" style="color:#d2e3b1;">330-272-9911</a>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const $ = (selector) => document.querySelector(selector);
+      const $$ = (selector) => [...document.querySelectorAll(selector)];
+
+      const money = (number) =>
+        new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: "USD"
+        }).format(number);
+
+      const rentalMode = () => $('input[name="rental-mode"]:checked').value;
+      const weekendHours = () => Number($('input[name="weekend-hours"]:checked').value);
+
+      const machinePrice = (days) => {
+        if (days <= 2) return 225 * days;
+        if (days <= 4) return 175 * days;
+        return 795;
+      };
+
+      const forksPrice = (days) => {
+        if (days <= 2) return 45 * days;
+        if (days === 3) return 105;
+        return 125;
+      };
+
+      const augerPrice = (days) => {
+        if (days <= 2) return 75 * days;
+        if (days === 3) return 180;
+        return 225;
+      };
+
+      const trailerPrice = (days) => {
+        if (days <= 2) return 75 * days;
+        if (days === 3) return 180;
+        return 225;
+      };
+
+      const line = (label, sub, amount, discount = false) => `
+        <div class="summary-line${discount ? " discount" : ""}">
+          <span>
+            ${label}
+            ${sub ? `<small>${sub}</small>` : ""}
+          </span>
+          <span>${amount}</span>
+        </div>
+      `;
+
+      function setSelectionStyles() {
+        $("#standard-card").classList.toggle("selected", rentalMode() === "standard");
+        $("#weekend-card").classList.toggle("selected", rentalMode() === "weekend");
+        $("#weekend-8-card").classList.toggle("selected", weekendHours() === 8);
+        $("#weekend-16-card").classList.toggle("selected", weekendHours() === 16);
+        $("#forks-card").classList.toggle("active", $("#forks").checked);
+        $("#auger-card").classList.toggle("active", $("#auger").checked);
+        $("#trailer-card").classList.toggle("active", $("#trailer").checked);
+        $("#waiver-card").classList.toggle("active", $("#waiver").checked);
+        $("#contractor-card").classList.toggle("active", $("#contractor").checked);
+      }
+
+      function getEstimateData() {
+        const isWeekend = rentalMode() === "weekend";
+        const days = Number($("#days").value);
+        const hours = weekendHours();
+        const transport = $("#transport").value;
+        const pickup = transport === "pickup";
+
+        let total = isWeekend ? (hours === 16 ? 299 : 225) : machinePrice(days);
+        const summary = [];
+
+        const rentalDescription = isWeekend
+          ? `Weekend · ${hours} machine hours`
+          : days >= 5
+            ? `${days} days · weekly rate · up to 40 machine hours`
+            : `${days} ${days === 1 ? "day" : "days"} · up to ${days * 8} machine hours`;
+
+        summary.push(line("Bobcat MT100", rentalDescription, money(total)));
+
+        if ($("#forks").checked) {
+          const price = isWeekend ? 60 : forksPrice(days);
+          total += price;
+          const sub = isWeekend
+            ? "Weekend rate"
+            : days >= 4
+              ? "Weekly cap applied"
+              : `${days} ${days === 1 ? "day" : "days"}`;
+          summary.push(line("Pallet Forks", sub, money(price)));
+        }
+
+        if ($("#auger").checked) {
+          const price = isWeekend ? 95 : augerPrice(days);
+          total += price;
+          const sub = isWeekend
+            ? "Weekend rate"
+            : days >= 4
+              ? "Weekly cap applied"
+              : `${days} ${days === 1 ? "day" : "days"}`;
+          summary.push(line("Auger", `${$("#auger-bit").value}" bit · ${sub}`, money(price)));
+        }
+
+        if (pickup) {
+          summary.push(line("Transport", "Customer pickup", "Included"));
+        } else {
+          summary.push(line("Delivery", "Quoted from job location", "To be confirmed"));
+        }
+
+        if ($("#trailer").checked) {
+          const price = isWeekend ? 100 : trailerPrice(days);
+          total += price;
+          const sub = isWeekend
+            ? "Weekend rate"
+            : days >= 4
+              ? "Weekly cap applied"
+              : `${days} ${days === 1 ? "day" : "days"}`;
+          summary.push(line("Equipment Trailer", sub, money(price)));
+        }
+
+        if ($("#waiver").checked) {
+          total += 35;
+          summary.push(line("Damage Waiver", "$1,500 deductible", money(35)));
+        }
+
+        const bundle =
+          $("#trailer").checked &&
+          ($("#forks").checked || $("#auger").checked);
+
+        const bundleDiscount = bundle
+          ? (!isWeekend && days >= 3 ? 50 : 25)
+          : 0;
+
+        if (bundleDiscount) {
+          total -= bundleDiscount;
+          summary.push(line(
+            "Bundle Savings",
+            !isWeekend && days >= 3
+              ? "3+ day machine + trailer + paid attachment"
+              : "Machine + trailer + paid attachment",
+            "−" + money(bundleDiscount),
+            true
+          ));
+        }
+
+        return {
+          isWeekend,
+          days,
+          hours,
+          transport,
+          pickup,
+          total,
+          summary,
+          bundle,
+          bundleDiscount,
+          rentalDescription
+        };
+      }
+
+      function updateEstimate() {
+        const isWeekend = rentalMode() === "weekend";
+        const days = Number($("#days").value);
+        const transport = $("#transport").value;
+        const pickup = transport === "pickup";
+
+        $("#standard-options").classList.toggle("hidden", isWeekend);
+        $("#weekend-options").classList.toggle("hidden", !isWeekend);
+        $("#weekly-summary").classList.toggle("hidden", isWeekend || days < 5);
+        $("#auger-bit-wrap").classList.toggle("hidden", !$("#auger").checked);
+
+        if (!pickup && $("#trailer").checked) {
+          $("#trailer").checked = false;
+        }
+
+        $("#trailer").disabled = !pickup;
+        $("#trailer-card").classList.toggle("disabled", !pickup);
+
+        if (pickup) {
+          $("#trailer-help").textContent =
+            "Add our equipment trailer if you're picking the machine up yourself.";
+          $("#delivery-note").classList.add("hidden");
+          $("#delivery-summary").classList.add("hidden");
+          $("#subtotal-label").textContent = "Estimated Subtotal";
+          $("#estimate-heading").textContent = "Your estimate";
+          $("#estimate-help").textContent =
+            "Standard public-rate estimate. Applicable sales tax is added when the reservation is confirmed.";
+        } else {
+          $("#trailer-help").textContent =
+            "Trailer rental is not needed when Pinnacle delivers the machine.";
+          $("#delivery-note").classList.remove("hidden");
+          $("#delivery-summary").classList.remove("hidden");
+          $("#subtotal-label").textContent = "Equipment Subtotal";
+          $("#estimate-heading").textContent = "Equipment estimate";
+          $("#estimate-help").textContent =
+            "Standard public-rate equipment subtotal. Delivery and applicable sales tax are added when the reservation is confirmed.";
+        }
+
+        $("#forks-label").textContent = isWeekend
+          ? "$60 weekend"
+          : days >= 4
+            ? "$125 weekly cap"
+            : days === 3
+              ? "$105 for 3 days"
+              : "$45/day";
+
+        $("#auger-label").textContent = isWeekend
+          ? "$95 weekend"
+          : days >= 4
+            ? "$225 weekly cap"
+            : days === 3
+              ? "$180 for 3 days"
+              : "$75/day";
+
+        $("#trailer-label").textContent = !pickup
+          ? "Not needed with delivery"
+          : isWeekend
+            ? "$100 weekend"
+            : days >= 4
+              ? "$225 weekly cap"
+              : days === 3
+                ? "$180 for 3 days"
+                : "$75/day";
+
+        const estimate = getEstimateData();
+
+        $("#estimate-total").textContent = money(estimate.total);
+        $("#summary-total").textContent = money(estimate.total);
+        $("#summary-lines").innerHTML = estimate.summary.join("");
+        $("#bundle-summary").classList.toggle("hidden", !estimate.bundle);
+
+        if (estimate.bundle) {
+          $("#bundle-summary-title").textContent =
+            `${money(estimate.bundleDiscount).replace(".00", "")} bundle savings applied.`;
+
+          $("#bundle-summary-copy").textContent =
+            !estimate.isWeekend && estimate.days >= 3
+              ? "3+ day machine + trailer + paid attachment."
+              : "Machine + trailer + paid attachment.";
+        }
+
+        setSelectionStyles();
+      }
+
+      function updateContractor() {
+        const contractor = $("#contractor").checked;
+        $("#contractor-note").classList.toggle("hidden", !contractor);
+        $("#contractor-summary").classList.toggle("hidden", !contractor);
+        setSelectionStyles();
+      }
+
+      function buildRequestText() {
+        const estimate = getEstimateData();
+        const contractor = $("#contractor").checked;
+        const attachmentNames = [];
+
+        if ($("#forks").checked) attachmentNames.push("Pallet forks");
+        if ($("#auger").checked) attachmentNames.push(`Auger ${$("#auger-bit").value}"`);
+
+        return [
+          "Pinnacle Equipment rental request",
+          "",
+          `Name: ${$("#customer-name").value.trim()}`,
+          `Phone: ${$("#customer-phone").value.trim()}`,
+          `Requested start date: ${$("#requested-date").value}`,
+          `Job location: ${$("#job-location").value.trim() || "Not provided"}`,
+          `Rental: Bobcat MT100 — ${estimate.rentalDescription}`,
+          `Attachments: ${attachmentNames.length ? attachmentNames.join(", ") : "Bucket only"}`,
+          `Transport: ${estimate.pickup ? "Customer pickup" : "Delivery requested — quote needed"}`,
+          `Trailer: ${$("#trailer").checked ? "Yes" : "No"}`,
+          `Damage waiver: ${$("#waiver").checked ? "Yes" : "No"}`,
+          `Contractor: ${contractor ? "Yes — please confirm contractor pricing" : "No"}`,
+          `Estimated ${estimate.pickup ? "subtotal" : "equipment subtotal"}: ${money(estimate.total)} + applicable tax${estimate.pickup ? "" : " + delivery"}`,
+          `Project: ${$("#project-notes").value.trim() || "Not provided"}`,
+          "",
+          "Please confirm availability and final pricing."
+        ].join("\n");
+      }
+
+      function validateRequest() {
+        const name = $("#customer-name").value.trim();
+        const phone = $("#customer-phone").value.trim();
+        const date = $("#requested-date").value;
+        const location = $("#job-location").value.trim();
+
+        if (!name || !phone || !date) {
+          $("#status-message").textContent =
+            "Add your name, phone number, and requested start date first.";
+          return false;
+        }
+
+        if ($("#transport").value === "delivery" && !location) {
+          $("#status-message").textContent =
+            "Add the job city or ZIP so we can quote delivery.";
+          return false;
+        }
+
+        return true;
+      }
+
+      function smsHref(message) {
+        const encoded = encodeURIComponent(message);
+        const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+        return isiOS
+          ? `sms:3302729911&body=${encoded}`
+          : `sms:3302729911?body=${encoded}`;
+      }
+
+      function emailHref(message) {
+        const subject = encodeURIComponent("Pinnacle Equipment Rental Request");
+        const body = encodeURIComponent(message);
+        return `mailto:pinn.equipment@gmail.com?subject=${subject}&body=${body}`;
+      }
+
+      $$(
+        'input[name="rental-mode"], input[name="weekend-hours"], #days, #forks, #auger, #auger-bit, #transport, #trailer, #waiver'
+      ).forEach((element) => {
+        element.addEventListener("change", updateEstimate);
+      });
+
+      $("#contractor").addEventListener("change", updateContractor);
+
+      $("#email-request").addEventListener("click", () => {
+        if (!validateRequest()) return;
+
+        const message = buildRequestText();
+        $("#status-message").textContent =
+          "Opening a prefilled email to Pinnacle. Review it, then press send.";
+        window.location.href = emailHref(message);
+      });
+
+      $("#copy-request").addEventListener("click", async () => {
+        if (!validateRequest()) return;
+
+        const message = buildRequestText();
+
+        try {
+          await navigator.clipboard.writeText(message);
+          $("#status-message").textContent =
+            "Rental request copied. You can paste it into a text message or email.";
+        } catch (error) {
+          $("#status-message").textContent =
+            "Your browser blocked automatic copying. Use “Request This Rental” to open the prefilled text instead.";
+        }
+      });
+
+      $("#estimator-form").addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (!validateRequest()) return;
+
+        const message = buildRequestText();
+        $("#status-message").textContent =
+          "Opening a prefilled text to Pinnacle. Review it, then press send.";
+        window.location.href = smsHref(message);
+      });
+
+      // Menu behavior
+      const menu = $("#site-menu");
+      const toggle = menu.querySelector("summary");
+
+      menu.addEventListener("click", (event) => {
+        if (event.target.closest("a")) {
+          menu.open = false;
+        }
+      });
+
+      document.addEventListener("click", (event) => {
+        if (menu.open && !menu.contains(event.target)) {
+          menu.open = false;
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && menu.open) {
+          menu.open = false;
+          toggle.focus({ preventScroll: true });
+        }
+      });
+
+      updateEstimate();
+      updateContractor();
+    })();
+  </script>
+</body>
+</html>
