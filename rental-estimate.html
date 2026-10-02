@@ -1372,6 +1372,8 @@
       $("#email-request").addEventListener("click", () => {
         if (!validateRequest()) return;
 
+        trackAnalyticsEvent("rental_request_email");
+
         const message = buildRequestText();
         $("#status-message").textContent =
           "Opening a prefilled email to Pinnacle. Review it, then press send.";
