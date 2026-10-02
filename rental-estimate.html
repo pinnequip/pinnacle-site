@@ -1397,6 +1397,8 @@
         event.preventDefault();
         if (!validateRequest()) return;
 
+        trackAnalyticsEvent("rental_request_text");
+
         const message = buildRequestText();
         $("#status-message").textContent =
           "Opening a prefilled text to Pinnacle. Review it, then press send.";
