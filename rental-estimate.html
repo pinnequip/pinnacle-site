@@ -1387,6 +1387,9 @@
 
         try {
           await navigator.clipboard.writeText(message);
+
+          trackAnalyticsEvent("rental_request_copy");
+          
           $("#status-message").textContent =
             "Rental request copied. You can paste it into a text message or email.";
         } catch (error) {
