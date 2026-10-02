@@ -1404,6 +1404,10 @@
         }
       });
 
+      $("#call-request").addEventListener("click", () => {
+        trackAnalyticsEvent("rental_request_call");
+      });
+      
       $("#estimator-form").addEventListener("submit", (event) => {
         event.preventDefault();
         if (!validateRequest()) return;
