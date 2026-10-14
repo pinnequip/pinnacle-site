@@ -709,8 +709,141 @@
     }
   </style>
 
+  <style id="pinnacle-rental-refinements">
+/* Rental-page refinement only. Existing branding, header, metadata and scripts remain in place. */
+.skip-link { position: fixed; top: 10px; left: 12px; z-index: 100; padding: 12px 18px; background: #f5f5f1; color: #080a08; border-radius: 8px; transform: translateY(-160%); }
+.skip-link:focus { transform: translateY(0); }
+main a:focus-visible, footer a:focus-visible, .faq summary:focus-visible { outline: 3px solid var(--silver); outline-offset: 4px; }
+main a, footer a { text-underline-offset: 3px; }
+.hero { padding: 40px 0 32px; border-top: 0; }
+.hero-grid { grid-template-columns: 1.18fr 1fr; gap: 32px; }
+.hero-copy h1 { font-size: clamp(36px, 4.2vw, 52px); line-height: 1.04; margin-bottom: 16px; }
+.hero-message { font-size: 23px; font-weight: 800; margin: 0 0 9px; color: #d5e3bf; }
+.hero-copy .lead { font-size: 17px; margin: 0 0 20px; max-width: 540px; }
+.quick-rates { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; }
+.quick-rate { min-width: 0; padding: 14px 12px; border: 1px solid var(--line); background: var(--panel); border-radius: 14px; }
+.quick-rate > span:first-child { display: block; font-size: 14px; color: var(--muted); }
+.quick-rate strong { display: block; font-size: 31px; line-height: 1.2; margin: 3px 0; font-variant-numeric: tabular-nums; }
+.quick-rate small { display: block; font-size: 12px; color: var(--muted); }
+.quick-rate-featured { border-color: var(--green); background: linear-gradient(160deg, rgba(111,138,58,.25), var(--panel)); }
+.saving-label { display: inline-block; color: #d5e3bf; font-size: 12px; font-weight: 800; margin-top: 4px; }
+.rate-note { margin: 10px 0 0; color: var(--muted); font-size: 12px; max-width: 530px; }
+.hero-actions { margin: 20px 0 9px; }
+.btn { min-height: 48px; text-align: center; }
+.btn-primary { background: #566d2b; }
+.btn-primary:hover { background: #607b2e; }
+.btn-secondary:hover { background: rgba(255,255,255,.09); }
+.call-link { margin: 0; font-size: 14px; color: var(--muted); }
+.call-link a, .text-link-row a, .faq a, .contact-estimate a { text-decoration: underline; }
+.hero-card { border-radius: 24px; }
+.machine-photo { height: 330px; }
+.machine-photo img { object-position: 50% 50%; }
+.photo-caption { padding: 16px 20px; font-size: 14px; color: var(--muted); }
+.page-jump-wrap { margin-bottom: 26px; }
+section { padding: 44px 0; }
+section[id], #uses, #main-content { scroll-margin-top: 120px; }
+header.pinnacle-nav ~ main section[id] { scroll-margin-top: 120px; }
+h2 { font-size: clamp(28px, 3.4vw, 38px); }
+.section-head { margin-bottom: 24px; }
+.section-head p { margin-bottom: 0; }
+.rate-table-wrap { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+.rental-rates { width: 100%; border-collapse: collapse; text-align: left; }
+.rental-rates caption { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.rental-rates th, .rental-rates td { padding: 13px 20px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+.rental-rates thead th { background: rgba(255,255,255,.035); font-size: 13px; color: var(--muted); font-weight: 700; }
+.rental-rates tbody th { font-weight: 400; }
+.rental-rates tbody td:nth-child(2) { font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.rental-rates tbody td:last-child { color: var(--muted); }
+.rental-rates tbody tr:last-child > * { border-bottom: 0; }
+.featured-rate { background: rgba(111,138,58,.13); }
+.featured-rate th { color: #d5e3bf; }
+.pricing-notes { display: grid; gap: 8px; margin-top: 18px; color: var(--muted); font-size: 14px; }
+.pricing-notes p { margin: 0; }
+.text-link-row { margin: 20px 0 0; font-weight: 700; }
+.rental-steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px; }
+.rental-steps li { display: flex; align-items: flex-start; gap: 12px; }
+.step-number { font-size: 14px; font-weight: 800; line-height: 1.7; color: #b7cc94; }
+.rental-steps h3 { font-size: 19px; margin: 0 0 8px; color: var(--text); }
+.rental-steps p { font-size: 15px; margin: 0; }
+.machine-specs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; padding: 0 0 16px; margin: 0; }
+.machine-specs > div { border-left: 2px solid var(--green); padding-left: 14px; }
+.machine-specs dt { color: var(--muted); font-size: 13px; }
+.machine-specs dd { font-size: 28px; font-weight: 800; line-height: 1.3; margin: 5px 0 0; }
+.spec-note { font-size: 13px; color: var(--muted); margin: 0 0 24px; max-width: 780px; }
+.attachment-cards .card { padding: 20px; border-radius: 18px; }
+.attachment-cards p { font-size: 15px; margin-bottom: 0; }
+.common-uses { margin-top: 24px; }
+.common-uses h3 { font-size: 18px; margin: 0 0 7px; }
+.common-uses p { color: var(--muted); margin: 0; font-size: 15px; }
+.faq-container { max-width: 900px; }
+.faq { padding: 0; }
+.faq summary { padding: 18px 28px 18px 0; font-size: 17px; font-weight: 700; cursor: pointer; }
+.faq p { margin: 0 0 20px; max-width: 780px; font-size: 15px; }
+.final-cta { padding: 28px; }
+.final-cta > p { max-width: 700px; color: var(--muted); }
+.final-cta .cta-row { margin: 22px 0 14px; }
+.final-cta .contact-estimate { font-size: 14px; margin: 0; }
+.local-service { margin: 22px 0 0; color: var(--muted); font-size: 14px; max-width: 850px; }
+.footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; }
+.footer-inner > div:last-child { line-height: 2; }
+.footer-inner > div:last-child span { padding: 0 7px; }
+.official-tagline { color: #d5e3bf; }
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+  .hero-card { max-width: 680px; width: 100%; }
+  .machine-photo { height: auto; aspect-ratio: 1224 / 641; }
+  .hero-copy h1 { max-width: 650px; }
+  .hero-copy .lead { max-width: 600px; }
+  .quick-rates { max-width: 590px; }
+  .rental-steps { grid-template-columns: 1fr; gap: 22px; }
+  .attachment-cards { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .hero { padding: 24px 0; }
+  .hero-copy h1 { font-size: clamp(32px, 8.8vw, 38px); line-height: 1.06; letter-spacing: -.035em; margin-bottom: 14px; }
+  .hero-message { font-size: 20px; margin-bottom: 8px; }
+  .hero-copy .lead { font-size: 16px; margin-bottom: 17px; }
+  .quick-rates { gap: 7px; }
+  .quick-rate { padding: 11px 8px; border-radius: 12px; }
+  .quick-rate > span:first-child { font-size: 13px; }
+  .quick-rate strong { font-size: 28px; }
+  .quick-rate small { font-size: 11px; }
+  .hero-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 18px; }
+  .hero-actions .btn { font-size: 14px; padding: 12px 8px; }
+  .rate-note { font-size: 12px; }
+  .photo-caption { padding: 13px 15px; font-size: 13px; }
+  .page-jump-links { gap: 6px; }
+  .page-jump-links a { font-size: 13px; padding: 10px 12px; }
+  .page-jump-wrap { margin-bottom: 22px; }
+  section { padding: 34px 0; }
+  .rental-rates th, .rental-rates td { padding: 12px 10px; font-size: 13px; }
+  .rental-rates thead th { font-size: 12px; }
+  .rental-rates tbody td:nth-child(2) { font-size: 19px; white-space: nowrap; }
+  .rental-rates th:first-child { width: 45%; }
+  .pricing-notes { font-size: 13px; gap: 10px; }
+  .text-link-row { font-size: 14px; }
+  .machine-specs { gap: 12px; }
+  .machine-specs > div { padding-left: 9px; }
+  .machine-specs dt { font-size: 12px; }
+  .machine-specs dd { font-size: 22px; }
+  .faq summary { font-size: 16px; }
+  .final-cta { padding: 23px 20px; border-radius: 22px; }
+  .final-cta .cta-row { display: grid; gap: 10px; }
+  .final-cta .btn { font-size: 15px; }
+  .footer-inner > div:last-child { font-size: 13px; }
+  section[id], #uses, #main-content, header.pinnacle-nav ~ main section[id] { scroll-margin-top: 108px; }
+}
+@media (max-width: 360px) {
+  .quick-rate { padding: 10px 6px; }
+  .quick-rate strong { font-size: 26px; }
+  .hero-actions .btn { font-size: 13px; }
+  .machine-specs { grid-template-columns: 1fr; gap: 14px; }
+  .machine-specs dd { margin-top: 2px; }
+}
+  </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to rental details</a>
   <header class="pinnacle-nav">
   <div class="container nav-inner">
     <a href="/" class="brand" aria-label="Pinnacle Equipment home">
@@ -750,229 +883,170 @@
   </div>
 </header>
   
-  <main>
-    <section class="hero">
-      <div class="container page-jump-wrap">
-        <nav class="page-jump-links" aria-label="On this page">
-          <a href="#equipment">Equipment</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#faq">FAQ</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
-
+  <main id="main-content">
+    <section class="hero" aria-labelledby="rental-heading">
       <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">Austintown, Ohio Mini Skid Steer Rental</div>
-          <h1>Mini skid steer rental for real property work.</h1>
-          <p class="lead">Rent a Bobcat MT100 mini skid steer for mulch, stone, dirt, grading, cleanup, material handling, fence projects, and tight-access jobs. Pinnacle Equipment is based in Austintown and serves the surrounding Northeast Ohio area.</p>
+        <div class="hero-copy">
+          <h1 id="rental-heading">Mini Skid Steer Rental in Austintown, Ohio</h1>
+          <p class="hero-message">Big Projects. Simple Rentals.</p>
+          <p class="lead">Rent the Bobcat MT100 with a bucket included. Choose convenient pickup or local delivery.</p>
 
-          <div class="cta-row">
-            <a class="btn btn-primary" href="sms:3302729911">Text to Check Availability</a>
+          <div class="quick-rates" aria-label="Popular machine rental options">
+            <div class="quick-rate">
+              <span>1 day</span>
+              <strong>$225</strong>
+              <small>8 engine hours</small>
+            </div>
+            <div class="quick-rate quick-rate-featured">
+              <span>3 days</span>
+              <strong>$525</strong>
+              <small>24 engine hours</small>
+              <span class="saving-label">Save $150</span>
+            </div>
+            <div class="quick-rate">
+              <span>5–7 days</span>
+              <strong>$795</strong>
+              <small>40 engine hours</small>
+            </div>
+          </div>
+          <p class="rate-note">3-day savings compared with three $225 daily rentals. Machine rates before tax; options extra.</p>
+
+          <div class="cta-row hero-actions">
+            <a class="btn btn-primary" href="sms:3302729911">Text Availability</a>
             <a class="btn btn-secondary" href="/rental-estimate">Build an Estimate</a>
-            <a class="btn btn-secondary" href="tel:3302729911">Call 330-272-9911</a>
           </div>
-
-          <div class="trust-row">
-            <div class="trust-item">Bucket included</div>
-            <div class="trust-item">Pickup available</div>
-            <div class="trust-item">Local delivery available</div>
-            <div class="trust-item">Forks & auger options</div>
-          </div>
+          <p class="call-link">Prefer to call? <a href="tel:3302729911">330-272-9911</a></p>
         </div>
 
-        <aside class="hero-card" aria-label="Bobcat MT100 rental rates">
+        <aside class="hero-card" aria-label="Bobcat MT100 available to rent">
           <div class="machine-photo">
-           <img src="/images/machine-working.jpg" alt="Bobcat MT100 mini skid steer rental in Austintown Ohio">
+            <img src="/images/machine-working.jpg" alt="Bobcat MT100 mini skid steer working on a property project" width="1224" height="641" fetchpriority="high" decoding="async">
           </div>
-          <div class="rate-strip">
-            <div class="rate"><span>Daily</span><strong>$225</strong></div>
-            <div class="rate"><span>Weekend</span><strong>From $225</strong></div>
-            <div class="rate"><span>Weekly</span><strong>$795</strong></div>
-          </div>
+          <div class="photo-caption">Your next project, with a lot less wheelbarrow work.</div>
         </aside>
       </div>
     </section>
 
-    <section id="equipment">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Featured Rental</div>
-          <h2>Bobcat MT100 compact track loader</h2>
-          <p>The MT100 is a compact mini skid steer that fits a wide range of homeowner, property maintenance, landscaping, fencing, and contractor jobs where a full-size machine may be too large or unnecessary.</p>
-        </div>
+    <div class="container page-jump-wrap">
+      <nav class="page-jump-links" aria-label="On this page">
+        <a href="#pricing">All Rates</a>
+        <a href="#equipment">Equipment</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
 
-        <div class="grid-3">
-          <div class="card">
-            <span class="tag">Machine</span>
-            <h3>Bobcat MT100</h3>
-            <p>Compact, capable, and useful for material movement, light grading, cleanup, tight-access work, and property projects.</p>
-          </div>
-          <div class="card">
-            <span class="tag">Included</span>
-            <h3>Bucket</h3>
-            <p>The bucket is included with the MT100 rental and is a strong fit for mulch, stone, soil, cleanup, and general material handling.</p>
-          </div>
-          <div class="card">
-            <span class="tag">Available Options</span>
-            <h3>Forks & auger</h3>
-            <p>Pallet forks and auger options are available for material handling, fence posts, deck footers, sign posts, and similar jobs.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="uses">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Common Jobs</div>
-          <h2>What can you use a mini skid steer for?</h2>
-          <p>Many customers rent a mini skid steer when the job is too much for a shovel and wheelbarrow, but a larger skid steer is more machine than the job needs.</p>
-        </div>
-
-        <div class="grid-2">
-          <div class="card">
-            <h3>Homeowner & property projects</h3>
-            <ul class="list">
-              <li>Moving mulch, stone, dirt, and topsoil</li>
-              <li>Driveway cleanup and property cleanup</li>
-              <li>Backyard access where larger equipment may be difficult</li>
-              <li>Small grading and prep work</li>
-              <li>Fence posts and deck footers with auger option</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Contractor & jobsite support</h3>
-            <ul class="list">
-              <li>Landscaping and hardscape prep</li>
-              <li>Material handling with bucket or pallet forks</li>
-              <li>Tight-access work around homes and structures</li>
-              <li>Fence, deck, and property improvement jobs</li>
-              <li>Short-term compact equipment support</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="pricing">
-      <div class="container">
+    <section id="pricing" aria-labelledby="pricing-heading">
+      <div class="container pricing-container">
         <div class="section-head">
           <div class="eyebrow">Rental Rates</div>
-          <h2>Clear mini skid steer rental pricing</h2>
-          <p>Rates are kept straightforward so customers can quickly decide whether the MT100 is the right fit for the job. Final totals depend on rental length, attachments, delivery, applicable sales tax, fuel, cleaning, and availability.</p>
+          <h2 id="pricing-heading">More time. Better value.</h2>
+          <p>Every machine rental includes the bucket. Choose your rental length and included engine hours below.</p>
         </div>
-
-        <div class="grid-3">
-          <div class="card pricing-card">
-            <span class="tag">Daily</span>
-            <h3>One-day rental</h3>
-            <div class="price">$225</div>
-            <p>Up to 8 machine hours. Good for focused single-day projects and smaller jobs.</p>
-          </div>
-          <div class="card pricing-card">
-            <span class="tag">Weekend</span>
-            <h3>Weekend rental</h3>
-            <div class="price">From $225</div>
-            <p>$225 with up to 8 machine hours, or $299 with up to 16 machine hours.</p>
-          </div>
-          <div class="card pricing-card">
-            <span class="tag">Weekly</span>
-            <h3>Weekly rental</h3>
-            <div class="price">$795</div>
-            <p>Up to 7 consecutive days and 40 machine hours.</p>
-          </div>
+        <div class="rate-table-wrap">
+          <table class="rental-rates">
+            <caption>Bobcat MT100 machine rental rates, before tax and options</caption>
+            <thead>
+              <tr><th scope="col">Rental length</th><th scope="col">Rate</th><th scope="col">Engine hours</th></tr>
+            </thead>
+            <tbody>
+              <tr data-rental="1-day"><th scope="row">1 day</th><td>$225</td><td>Up to 8</td></tr>
+              <tr data-rental="2-day"><th scope="row">2 days</th><td>$450</td><td>Up to 16</td></tr>
+              <tr class="featured-rate" data-rental="3-day"><th scope="row">3 days</th><td>$525</td><td>Up to 24</td></tr>
+              <tr data-rental="4-day"><th scope="row">4 days</th><td>$700</td><td>Up to 32</td></tr>
+              <tr data-rental="weekly"><th scope="row">5–7 consecutive days</th><td>$795</td><td>Up to 40 total</td></tr>
+              <tr data-rental="weekend-8"><th scope="row">Standard weekend</th><td>$225</td><td>Up to 8</td></tr>
+              <tr data-rental="weekend-16"><th scope="row">Extended weekend</th><td>$299</td><td>Up to 16</td></tr>
+            </tbody>
+          </table>
         </div>
-
-        <p style="color: var(--muted); margin-top: 18px;">Multi-day pricing is $175/day for 3–4 days. At 5 days, the $795 weekly rate is automatically the better value and includes up to 7 consecutive days / 40 machine hours. Attachments, delivery, applicable sales tax, fuel, cleaning, and availability are confirmed before booking. Pickup is available for qualified customers with the right towing setup.</p>
-
-        <div class="cta-row" style="margin-top: 22px;">
-          <a class="btn btn-primary" href="/rental-estimate">Build a Rental Estimate</a>
-          <a class="btn btn-secondary" href="sms:3302729911">Text to Check Availability</a>
+        <div class="pricing-notes">
+          <p><strong>Multi-day:</strong> The $175/day rate applies to 3–4 consecutive days. From day 5, the $795 weekly rate covers up to 7 consecutive days and 40 total engine hours.</p>
+          <p><strong>Weekends:</strong> Generally Friday afternoon through Monday morning. Pickup and return times are confirmed when booking.</p>
+          <p>Attachments, trailer rental, delivery, optional damage waiver and applicable tax are additional. Fuel or cleaning charges may apply under the rental terms.</p>
         </div>
+        <p class="text-link-row"><a href="/rental-estimate">Build an estimate with your attachments and transport options <span aria-hidden="true">→</span></a></p>
       </div>
     </section>
 
-    <section>
+    <section id="how-it-works" aria-labelledby="process-heading">
       <div class="container">
         <div class="section-head">
-          <div class="eyebrow">Service Area</div>
-          <h2>Based in Austintown, serving surrounding Northeast Ohio areas</h2>
-          <p>Pinnacle Equipment is based in Austintown, Ohio and serves nearby areas depending on availability, scheduling, and delivery distance.</p>
+          <div class="eyebrow">How to Rent</div>
+          <h2 id="process-heading">Three simple steps.</h2>
         </div>
-
-        <div class="service-area" aria-label="Service areas">
-          <span class="area-pill">Austintown</span>
-          <span class="area-pill">Youngstown</span>
-          <span class="area-pill">Canfield</span>
-          <span class="area-pill">Boardman</span>
-          <span class="area-pill">Poland</span>
-          <span class="area-pill">Mineral Ridge</span>
-          <span class="area-pill">Niles</span>
-          <span class="area-pill">Warren</span>
-          <span class="area-pill">North Jackson</span>
-          <span class="area-pill">Girard</span>
-          <span class="area-pill">McDonald</span>
-          <span class="area-pill">Mahoning Valley</span>
-        </div>
+        <ol class="rental-steps">
+          <li><span class="step-number" aria-hidden="true">01</span><div><h3>Send your dates</h3><p>Call, text or send your online estimate with your project dates and job location.</p></div></li>
+          <li><span class="step-number" aria-hidden="true">02</span><div><h3>Confirm your rental</h3><p>We confirm availability, your setup and final pricing. Sign your agreement and pay electronically.</p></div></li>
+          <li><span class="step-number" aria-hidden="true">03</span><div><h3>Get to work</h3><p>Pick up your equipment or have it delivered at the agreed time.</p></div></li>
+        </ol>
       </div>
     </section>
 
-    <section id="faq">
+    <section id="equipment" aria-labelledby="equipment-heading">
       <div class="container">
         <div class="section-head">
-          <div class="eyebrow">Questions</div>
-          <h2>Mini skid steer rental FAQ</h2>
+          <div class="eyebrow">Equipment & Attachments</div>
+          <h2 id="equipment-heading">Bobcat MT100 mini skid steer</h2>
+          <p>A stand-on compact track loader for landscaping, material moving and jobs where a full-size skid steer may be too large.</p>
         </div>
+        <dl class="machine-specs">
+          <div><dt>Width with standard tracks</dt><dd>About 36 in.</dd></div>
+          <div><dt>Rated operating capacity</dt><dd>1,000 lb</dd></div>
+          <div><dt>Diesel engine</dt><dd>24.8 hp</dd></div>
+        </dl>
+        <p class="spec-note">Check gate and attachment clearance with us before booking. Operating capacity varies with the attachment, load position and operating conditions.</p>
 
-        <div class="faq">
-          <h3>How much does it cost to rent the Bobcat MT100?</h3>
-          <p>Standard posted rates are $225 daily for up to 8 machine hours, $225 weekend for up to 8 machine hours or $299 weekend for up to 16 machine hours, and $795 weekly for up to 7 consecutive days / 40 machine hours. Multi-day pricing is $175/day for 3–4 days. Attachments, delivery, applicable sales tax, fuel, cleaning, and other terms are confirmed before booking.</p>
+        <div class="grid-3 attachment-cards">
+          <div class="card"><span class="tag">Included</span><h3>Bucket</h3><p>Move mulch, stone, dirt and topsoil. Useful for cleanup and grading prep.</p></div>
+          <div class="card"><span class="tag">Optional</span><h3>Pallet forks</h3><p>Handle palletized materials within the machine and attachment ratings.</p></div>
+          <div class="card"><span class="tag">Optional</span><h3>Auger</h3><p>Drill post holes for fences, decks, signs and similar projects.</p></div>
         </div>
-        <div class="faq">
-          <h3>Do you deliver the mini skid steer?</h3>
-          <p>Yes. Local delivery and pickup are available based on location, scheduling, and current equipment availability. Pickup may also be available for customers with the proper towing setup.</p>
-        </div>
-        <div class="faq">
-          <h3>What attachments are available?</h3>
-          <p>The bucket is included with the MT100 rental. Pallet forks and auger options are available for material handling, fence posts, deck footers, sign posts, and similar projects.</p>
-        </div>
-        <div class="faq">
-          <h3>Do you rent to homeowners?</h3>
-          <p>Yes. Pinnacle Equipment serves contractors, property owners, homeowners, landscapers, and customers working on practical property projects.</p>
-        </div>
-        <div class="faq">
-          <h3>Do you offer contractor pricing?</h3>
-          <p>Yes. Contractor pricing and account setup are available for approved commercial customers. Standard public pricing is shown on the rental page and estimator; contractor pricing is confirmed separately.</p>
+        <div id="uses" class="common-uses">
+          <h3>Useful around the house or on the jobsite</h3>
+          <p>Landscaping and hardscape prep · Driveway and property cleanup · Small grading projects · Tight-access backyard work · Fence and deck projects</p>
         </div>
       </div>
     </section>
 
-    <section>
-      <section id="contact">
-        <div class="container">
-          <div class="final-cta">
+    <section id="faq" aria-labelledby="faq-heading">
+      <div class="container faq-container">
+        <div class="section-head">
+          <div class="eyebrow">Quick Answers</div>
+          <h2 id="faq-heading">Before you book.</h2>
+        </div>
+        <details class="faq"><summary>Do you rent to homeowners?</summary><p>Yes. We rent to homeowners, property owners, landscapers and contractors. Tell us about your project if you need help choosing a setup.</p></details>
+        <details class="faq"><summary>Can I pick up the machine myself?</summary><p>Yes, with an appropriate tow vehicle, trailer and securement setup. Our equipment trailer is available as an add-on. Confirm your setup with us and review the <a href="/equipment-guides">MT100 loading and tie-down guide</a>.</p></details>
+        <details class="faq"><summary>How does delivery work?</summary><p>Local delivery and pickup are available based on job location and scheduling. Send your city or ZIP code with your requested dates so we can confirm delivery pricing.</p></details>
+        <details class="faq"><summary>Does an online estimate reserve the equipment?</summary><p>An estimate gives you a starting price. Send the request when you’re ready, and we’ll confirm availability, final pricing and pickup or delivery before booking.</p></details>
+        <details class="faq"><summary>Do you offer contractor pricing?</summary><p>Yes. Approved commercial customers can request <a href="/contractor-account">contractor account pricing</a> separately from the standard public rates.</p></details>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="final-cta">
           <div class="eyebrow">Check Availability</div>
-          <h2>Need a mini skid steer near Austintown?</h2>
-          <p class="lead">Build a quick standard-rate estimate, or text or call with your project date, job location, and whether you need pickup or delivery. We’ll confirm availability, final pricing, attachments, and scheduling before booking.</p>
+          <h2 id="contact-heading">Ready to get your project moving?</h2>
+          <p>Text your dates, job city or ZIP, and whether you need pickup or delivery. We’ll help confirm the equipment, attachments and final price.</p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="/rental-estimate">Build an Estimate</a>
-            <a class="btn btn-secondary" href="sms:3302729911">Text 330-272-9911</a>
-            <a class="btn btn-secondary" href="tel:3302729911">Call Now</a>
+            <a class="btn btn-primary" href="sms:3302729911">Text Availability</a>
+            <a class="btn btn-secondary" href="tel:3302729911">Call 330-272-9911</a>
           </div>
+          <p class="contact-estimate"><a href="/rental-estimate">Prefer to start with an online estimate?</a></p>
         </div>
+        <p class="local-service">Based in Austintown, serving Youngstown, Canfield, Boardman and surrounding Mahoning Valley communities. Delivery is confirmed by location and scheduling.</p>
       </div>
-    </section>
     </section>
   </main>
 
   <footer>
-    <div class="container">
-      <strong>Pinnacle Equipment</strong><br />
-      Bobcat MT100 mini skid steer rental based in Austintown, Ohio. Pickup and local delivery available based on scheduling and availability.<br />
-      <a href="/">Back to main site</a> &nbsp;·&nbsp; <a href="/rental-estimate">Build an Estimate</a>
+    <div class="container footer-inner">
+      <div><strong>Pinnacle Equipment</strong><br><span class="official-tagline">Stay on Top.</span></div>
+      <div><a href="/">Home</a> <span aria-hidden="true">·</span> <a href="/equipment-guides">Equipment Guides</a> <span aria-hidden="true">·</span> <a href="tel:3302729911">330-272-9911</a></div>
     </div>
   </footer>
+
 
   <script id="pinnacle-menu-script">
     // Native details keeps navigation available even when JavaScript is off.
