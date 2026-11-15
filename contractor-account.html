@@ -866,12 +866,12 @@
             </summary>
             <div class="site-menu-panel">
               <nav class="site-menu-links" aria-label="Primary">
-                <a href="index">Home</a>
-                <a href="mini-skid-steer-rental">Rentals</a>
+                <a href="/">Home</a>
+                <a href="/mini-skid-steer-rental">Rentals</a>
                 <a href="/rental-estimate">Rental Estimate</a>
-                <a href="contractor-account" aria-current="page">Contractors</a>
-                <a href="equipment-guides">Equipment Guides</a>
-                <a href="#about">About</a>
+                <a href="/contractor-account" aria-current="page">Contractors</a>
+                <a href="/equipment-guides">Equipment Guides</a>
+                <a href="/#about">About</a>
                 <a href="#contact">Contact</a>
               </nav>
               <div class="site-menu-contact">
@@ -1164,6 +1164,43 @@
           menu.open = false;
           toggle.focus({ preventScroll: true });
         }
+      });
+    })();
+  </script>
+
+  <script id="pinnacle-contractor-contact-tracking">
+    // Record direct contact-link clicks without interrupting the dialer,
+    // messaging app, or email application. Do not send personal information.
+    (() => {
+      const eventNames = {
+        tel: "rental_request_call",
+        sms: "rental_request_text",
+        mailto: "rental_request_email"
+      };
+
+      document.addEventListener("click", (event) => {
+        const target = event.target;
+        if (!(target instanceof Element)) return;
+
+        const link = target.closest('a[href^="tel:"], a[href^="sms:"], a[href^="mailto:"]');
+        if (!link) return;
+
+        const scheme = link.getAttribute("href").split(":", 1)[0].toLowerCase();
+        const eventName = eventNames[scheme];
+        if (!eventName || typeof gtag !== "function") return;
+
+        const contactLocation = link.closest(".site-menu-contact")
+          ? "navigation_menu"
+          : link.closest(".contact-card")
+            ? "contractor_contact"
+            : link.closest(".nav")
+              ? "header"
+              : "other";
+
+        gtag("event", eventName, {
+          contact_location: contactLocation,
+          page_context: "contractor_account"
+        });
       });
     })();
   </script>
