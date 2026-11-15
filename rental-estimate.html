@@ -1136,7 +1136,7 @@
         summary.push(line("Bobcat MT100", rentalDescription, money(total)));
 
         if ($("#forks").checked) {
-          const price = isWeekend ? 65 : forksPrice(days);
+          const price = isWeekend ? 60 : forksPrice(days);
           total += price;
           const sub = isWeekend
             ? "Weekend rate"
@@ -1252,7 +1252,7 @@
         }
 
         $("#forks-label").textContent = isWeekend
-          ? "$65 weekend"
+          ? "$60 weekend"
           : days >= 4
             ? "$125 weekly cap"
             : days === 3
