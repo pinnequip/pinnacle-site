@@ -1378,7 +1378,7 @@
       $("#email-request").addEventListener("click", () => {
         if (!validateRequest()) return;
 
-        trackAnalyticsEvent("rental_request_email");
+        trackAnalyticsEvent("rental_request_email", { contact_location: "estimator_request" });
 
         const message = buildRequestText();
         $("#status-message").textContent =
@@ -1394,7 +1394,7 @@
         try {
           await navigator.clipboard.writeText(message);
 
-          trackAnalyticsEvent("rental_request_copy");
+          trackAnalyticsEvent("rental_request_copy", { contact_location: "estimator_request" });
           
           $("#status-message").textContent =
             "Rental request copied. You can paste it into a text message or email.";
@@ -1404,15 +1404,38 @@
         }
       });
 
-      $("#call-request").addEventListener("click", () => {
-        trackAnalyticsEvent("rental_request_call");
+      // Track every direct Call/Text link, including the header, menu and footer.
+      // The estimator's prefilled SMS submission is handled separately below.
+      document.addEventListener("click", (event) => {
+        const link = event.target.closest('a[href^="tel:"], a[href^="sms:"]');
+        if (!link) return;
+
+        const href = link.getAttribute("href");
+        const eventName = href.startsWith("tel:")
+          ? "rental_request_call"
+          : "rental_request_text";
+
+        let contactLocation = "other";
+        if (link.id === "call-request") {
+          contactLocation = "estimator_request";
+        } else if (link.closest(".site-menu-contact")) {
+          contactLocation = "navigation_menu";
+        } else if (link.closest("header")) {
+          contactLocation = "header";
+        } else if (link.closest("footer")) {
+          contactLocation = "footer";
+        }
+
+        trackAnalyticsEvent(eventName, {
+          contact_location: contactLocation
+        });
       });
       
       $("#estimator-form").addEventListener("submit", (event) => {
         event.preventDefault();
         if (!validateRequest()) return;
 
-        trackAnalyticsEvent("rental_request_text");
+        trackAnalyticsEvent("rental_request_text", { contact_location: "estimator_request" });
 
         const message = buildRequestText();
         $("#status-message").textContent =
