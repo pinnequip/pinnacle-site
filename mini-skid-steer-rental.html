@@ -1070,5 +1070,37 @@ h2 { font-size: clamp(28px, 3.4vw, 38px); }
       });
     })();
   </script>
+  <!-- Rental page: track Call and Text link clicks as existing GA4 key events. -->
+  <script id="pinnacle-contact-tracking">
+    document.addEventListener('click', (event) => {
+      const link = event.target.closest('a[href]');
+      if (!link) return;
+
+      const href = link.getAttribute('href').trim().toLowerCase();
+      const eventName = href.startsWith('tel:')
+        ? 'rental_request_call'
+        : href.startsWith('sms:')
+          ? 'rental_request_text'
+          : null;
+
+      if (!eventName || typeof window.gtag !== 'function') return;
+
+      const contactLocation = link.closest('#site-menu')
+        ? 'navigation_menu'
+        : link.closest('#contact')
+          ? 'contact_section'
+          : link.closest('.hero')
+            ? 'rental_hero'
+            : link.closest('footer')
+              ? 'footer'
+              : 'header';
+
+      window.gtag('event', eventName, {
+        contact_location: contactLocation,
+        page_type: 'mini_skid_steer_rental'
+      });
+      // Keep the native tel: / sms: behavior; this is a click, not a confirmed lead.
+    });
+  </script>
 </body>
 </html>
