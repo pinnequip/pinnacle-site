@@ -1112,5 +1112,35 @@
 
     })();
   </script>
+  <!-- Homepage Call/Text tracking: preserves existing GA4 key-event names. -->
+  <script id="pinnacle-contact-tracking">
+    document.addEventListener('click', (event) => {
+      const link = event.target.closest('a[href]');
+      if (!link) return;
+
+      const href = link.getAttribute('href').trim().toLowerCase();
+      const eventName = href.startsWith('tel:')
+        ? 'rental_request_call'
+        : href.startsWith('sms:')
+          ? 'rental_request_text'
+          : null;
+
+      if (!eventName || typeof window.gtag !== 'function') return;
+
+      // Contact location lets us distinguish header/menu/contact clicks later.
+      const contactLocation = link.closest('#site-menu')
+        ? 'navigation_menu'
+        : link.closest('#contact')
+          ? 'contact_section'
+          : 'header';
+
+      window.gtag('event', eventName, {
+        contact_location: contactLocation,
+        page_type: 'homepage'
+      });
+      // Do not preventDefault: let tel: and sms: links work normally.
+    });
+  </script>
+
 </body>
 </html>
