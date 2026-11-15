@@ -1480,6 +1480,30 @@
     })();
   </script>
 
+  <script id="pinnacle-guide-contact-tracking">
+    // Track direct call/text clicks without changing the phone or SMS links.
+    // The event name matches existing Pinnacle GA4 key events.
+    document.addEventListener('click', (event) => {
+      const link = event.target.closest('a[href^="tel:"], a[href^="sms:"]');
+      if (!link || typeof gtag !== 'function') return;
+
+      const eventName = link.getAttribute('href').startsWith('tel:')
+        ? 'rental_request_call'
+        : 'rental_request_text';
+
+      const contactLocation = link.closest('.site-menu-contact')
+        ? 'navigation_menu'
+        : link.closest('.contact-card')
+          ? 'guide_help'
+          : 'header';
+
+      gtag('event', eventName, {
+        page_context: 'equipment_guides',
+        contact_location: contactLocation
+      });
+    });
+  </script>
+
   <script id="pinnacle-menu-script">
     // Native details keeps navigation available even when JavaScript is off.
     (() => {
